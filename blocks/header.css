@@ -1,0 +1,13 @@
+.header {
+  border-bottom: 1px;
+  border-color: #545454;
+}
+
+.header__logo {
+  margin: 45px 907px 41px 200px;
+}
+
+.header__line {
+  border: 1px solid #545454;
+  margin: 0 200px 0 200px;
+}
