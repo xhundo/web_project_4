@@ -1,7 +1,7 @@
 .elements {
   margin: 0 200px 0 200px;
   display: grid;
-  gap: 17px 20px;
+  grid-gap: 20px 17px;
   grid-template-columns: 282px 282px 282px;
 }
 
@@ -46,5 +46,18 @@
   width: 21px;
   height: 19px;
   box-sizing: content-box;
-  padding: 5px 3px 1px 0;
+  padding: 0;
+}
+
+.elements__button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+.elements__button:active {
+  opacity: 100%;
+  background-image: url(../images/Union.svg);
+  background-repeat: no-repeat;
+  transition: 0.5s ease-in;
 }

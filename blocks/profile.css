@@ -1,7 +1,6 @@
 .profile {
   display: flex;
-  flex-wrap: wrap;
-  max-width: 880px;
+  width: 880px;
   margin: 0 200px 0 200px;
 }
 
@@ -48,6 +47,12 @@
   margin: 77px 165px 16px 0;
 }
 
+.profile__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
 .profile__addbutton {
   background-color: #000;
   border: 1px solid #fff;
@@ -55,4 +60,10 @@
   height: 50px;
   padding: 14px 64px 14px 64px;
   margin: 75px 0 85px 0;
+}
+
+.profile__addbutton:hover {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.3s ease-in;
 }
