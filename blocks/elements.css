@@ -1,0 +1,50 @@
+.elements {
+  margin: 0 200px 0 200px;
+  display: grid;
+  gap: 17px 20px;
+  grid-template-columns: 282px 282px 282px;
+}
+
+.elements__card {
+  width: 282px;
+  height: 361px;
+  background-color: #fff;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.elements__image {
+  width: 282px;
+  height: 282px;
+  border-radius: 10px 10px 0 0;
+}
+
+.elements__text {
+  width: 246px;
+  height: 23px;
+  display: flex;
+  align-items: baseline;
+  align-content: center;
+  justify-content: space-between;
+  margin: 25px 15px 31px 21px;
+}
+
+.elements__title {
+  text-align: left;
+  font-family: "Inter";
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.elements__button {
+  background-color: #fff;
+  border: none;
+  width: 21px;
+  height: 19px;
+  box-sizing: content-box;
+  padding: 5px 3px 1px 0;
+}
