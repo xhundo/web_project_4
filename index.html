@@ -26,7 +26,7 @@
         <h1 class="profile__name">Jacques Cousteau</h1>
         <p class="profile__about">Explorer</p>
       </div>
-      <button class="profile__button">
+      <button class="profile__button" id="modal-open">
         <img
           class="profile-button__vector"
           src="./images/editvector.svg"
@@ -145,9 +145,33 @@
         </div>
       </div>
     </main>
+
     <footer class="footer">
       <p class="footer__copyright">© 2021 Around The U.S.</p>
     </footer>
-    <script src="script.js"></script>
+    <div class="modal" id="modal-profile">
+      <div class="modal__content">
+        <h2 class="modal__title">Edit profile</h2>
+        <form class="modal__form" id="profile-form">
+          <input
+            class="modal__profile-name"
+            type="text"
+            placeholder="Jacques Cousteau"
+            name="name"
+            id="profile-name"
+          />
+          <input
+            id="profile-description"
+            class="modal__profile-description"
+            type="text"
+            placeholder="Explorer"
+            name="description"
+          />
+          <button class="modal-button__close"></button>
+          <button type="submit" class="modal__submit"></button>
+        </form>
+      </div>
+    </div>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>

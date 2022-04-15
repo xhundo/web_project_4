@@ -1,0 +1,106 @@
+.modal {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 1280px;
+  display: none;
+}
+
+.modal__open {
+  display: flex;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  max-width: 430px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  margin: 54px 36px 0px 36px;
+}
+
+.modal__submit {
+  margin: 48px 0 36px 0px;
+  background-image: url(../images/Submit\ Button.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  width: 358px;
+  height: 50px;
+  border-radius: 2px;
+}
+
+.modal__submit:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+.modal__title {
+  margin: 34px 64px 0 36px;
+  font-family: "Inter";
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+}
+
+.modal__profile-name {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  padding: 0 0 13px 0;
+}
+
+.modal__profile-name::placeholder {
+  color: #000;
+}
+
+.modal__profile-description {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #000;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0 0 13px 0;
+  margin: 29px 0 0 0;
+}
+
+.modal__profile-description::placeholder {
+  color: #000;
+}
+
+.modal-button__close {
+  position: absolute;
+  top: -35px;
+  right: -35px;
+  background-color: transparent;
+  background-image: url(../images/Close\ Icon.svg);
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+
+.modal-button__close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
