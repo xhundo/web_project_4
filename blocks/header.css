@@ -1,5 +1,14 @@
+.header {
+  width: 880px;
+  margin: 0 200px 0 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .header__logo {
-  margin: 45px 907px 41px 200px;
+  width: 173px;
+  margin: 45px 707px 41px 0;
 }
 
 .header__line {
@@ -9,15 +18,17 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
   .header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 320px;
+    margin: 0;
   }
 
   .header__logo {
+    width: 126px;
     margin: 28px 167px 32px 27px;
   }
 

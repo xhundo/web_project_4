@@ -25,7 +25,7 @@
 
 .profile__name {
   color: #ffffff;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-size: 42px;
   font-weight: 500;
   line-height: 48px;
@@ -34,7 +34,7 @@
 }
 
 .profile__about {
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
@@ -75,7 +75,7 @@
   transition: 0.3s ease-in;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
   .profile {
     flex-direction: column;
     align-content: center;

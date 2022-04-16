@@ -1,4 +1,5 @@
 .elements {
+  width: 880px;
   margin: 0 200px 0 200px;
   display: grid;
   gap: 20px 17px;
@@ -30,7 +31,7 @@
 
 .elements__title {
   text-align: left;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-size: 24px;
   font-weight: 900;
   line-height: 29px;
@@ -62,8 +63,9 @@
   transition: 0.3s ease-in;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
   .elements {
+    width: 282px;
     margin: 0 19px 50px 19px;
     gap: 20px;
     grid-template-columns: 282px;
