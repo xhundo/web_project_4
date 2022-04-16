@@ -6,4 +6,23 @@
   border: 1px solid #545454;
   margin: 0 200px 0 200px;
   width: 880px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 700px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 320px;
+  }
+
+  .header__logo {
+    margin: 28px 167px 32px 27px;
+  }
+
+  .header__line {
+    max-width: 320px;
+    margin: 0;
+  }
 }

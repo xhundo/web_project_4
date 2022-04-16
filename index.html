@@ -23,16 +23,18 @@
         alt="Jacques Cousteau"
       />
       <div class="profile__info">
-        <h1 class="profile__name">Jacques Cousteau</h1>
-        <p class="profile__about">Explorer</p>
+        <div class="profile__text">
+          <h1 class="profile__name">Jacques Cousteau</h1>
+          <p class="profile__about">Explorer</p>
+        </div>
+        <button class="profile__button" id="modal-open">
+          <img
+            class="profile-button__vector"
+            src="./images/editvector.svg"
+            alt="Button"
+          />
+        </button>
       </div>
-      <button class="profile__button" id="modal-open">
-        <img
-          class="profile-button__vector"
-          src="./images/editvector.svg"
-          alt="Button"
-        />
-      </button>
       <button class="profile__addbutton">
         <img
           class="profile-button__add"
@@ -158,10 +160,8 @@
             type="text"
             placeholder="Jacques Cousteau"
             name="name"
-            id="profile-name"
           />
           <input
-            id="profile-description"
             class="modal__profile-description"
             type="text"
             placeholder="Explorer"
