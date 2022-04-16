@@ -1,16 +1,22 @@
 # Project 4: Around The U.S.
 
-### Overview
+## Project Overview:
 
-* Figma
-* Images
+Around The U.S is a project social media page that showcases different locations through out the U.S. that users can view and interact from various locations.
 
-**Figma**
+### Technologies used:
 
-* [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+- Figma
+- HTML/CSS
+- JavaScript
 
-**Images**
+# Upcoming features & implementation:
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+- Like button functionality.
+- Form interactivity
+- JavaScript
+- Page interactivity & more added pages with forms.
 
-Have fun with JavaScript!
+#### Link to the project:
+
+https://xhundo.github.io/web_project_4/
