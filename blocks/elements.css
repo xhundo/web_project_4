@@ -3,12 +3,12 @@
   display: grid;
   gap: 20px 17px;
   grid-template-columns: 282px 282px 282px;
-  width: 880px;
+  width: 100%;
+  max-width: 880px;
 }
 
 .elements__card {
-  width: 282px;
-  height: 361px;
+  max-width: 282px;
   background-color: #fff;
   border-radius: 10px 10px 10px 10px;
 }
@@ -21,7 +21,6 @@
 
 .elements__text {
   width: 246px;
-  height: 23px;
   display: flex;
   align-items: baseline;
   align-content: center;
@@ -63,9 +62,9 @@
   transition: 0.3s ease-in;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   .elements {
-    width: 282px;
+    max-width: 282px;
     margin: 0 19px 50px 19px;
     gap: 20px;
     grid-template-columns: 282px;
