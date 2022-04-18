@@ -82,7 +82,7 @@
     align-content: center;
     flex-wrap: wrap;
     max-width: 282px;
-    margin: 42px 19px 36px 19px;
+    margin: 42px auto 36px auto;
   }
 
   .profile__avatar {
