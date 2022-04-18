@@ -1,10 +1,10 @@
 .elements {
-  margin: 0 200px 0 200px;
+  margin: 0 auto 0 auto;
   display: grid;
   gap: 20px 17px;
-  grid-template-columns: 282px 282px 282px;
-  width: 100%;
+  grid-template-columns: repeat(auto-fill, 282px);
   max-width: 880px;
+  justify-content: center;
 }
 
 .elements__card {
@@ -20,7 +20,7 @@
 }
 
 .elements__text {
-  width: 246px;
+  max-width: 246px;
   display: flex;
   align-items: baseline;
   align-content: center;
@@ -62,11 +62,10 @@
   transition: 0.3s ease-in;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 710px) {
   .elements {
     max-width: 282px;
     margin: 0 19px 50px 19px;
     gap: 20px;
-    grid-template-columns: 282px;
   }
 }

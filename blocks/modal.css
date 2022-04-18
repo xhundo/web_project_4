@@ -10,7 +10,6 @@
   align-content: center;
   height: 1280px;
   display: none;
-  margin: 195px 0 0 0;
 }
 
 .modal_open {
@@ -25,6 +24,7 @@
   max-width: 430px;
   border-radius: 10px;
   position: relative;
+  margin: 195px 0 0 0;
 }
 
 .modal__form {
@@ -107,7 +107,7 @@
   transition: 0.2s ease-in;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 710px) {
   .modal {
     margin: 123px 0 0 0;
     height: 2814px;
