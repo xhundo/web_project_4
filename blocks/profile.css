@@ -32,6 +32,9 @@
   line-height: 48px;
   margin: 62px 10px 16px 0;
   width: 373px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__about {
@@ -41,6 +44,9 @@
   line-height: 22px;
   color: #fff;
   margin: 0 0 71px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__button {
