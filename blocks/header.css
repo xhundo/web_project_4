@@ -19,11 +19,8 @@
 
 @media screen and (max-width: 710px) {
   .header {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     max-width: 320px;
-    margin: 0 auto 0 auto;
   }
 
   .header__logo {
