@@ -99,16 +99,16 @@
   }
 
   .profile__info {
-    justify-content: center;
-    align-content: center;
+    align-items: flex-start;
     width: 282px;
-    margin: 0 0 0 19px;
+    height: 50px;
+    margin: 0 0 36px 19px;
     flex-wrap: nowrap;
   }
 
   .profile__name {
     margin: 0 0 14px 0;
-    padding: 0 10px 0 48px;
+    padding: 0 0 0 29px;
     font-size: 22px;
     line-height: 27px;
     text-align: center;
@@ -116,16 +116,26 @@
   }
 
   .profile__about {
-    margin: 0 0 36px 19px;
+    margin: 0 0 0 19px;
     font-family: "Inter";
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
     text-align: center;
+    width: 250px;
   }
 
   .profile__button {
-    margin: 0;
+    margin: 4px 0 0 10px;
+    width: 18px;
+    height: 18px;
+    box-sizing: content-box;
+    padding: 0;
+    align-items: center;
+  }
+
+  .profile-button__vector {
+    width: 7px;
   }
 
   .profile__addbutton {
@@ -135,6 +145,6 @@
 
   .profile__text {
     justify-content: center;
-    width: 282px;
+    width: calc(282px - 56px);
   }
 }
