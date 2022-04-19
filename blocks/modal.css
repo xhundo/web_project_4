@@ -114,13 +114,23 @@
     align-items: flex-start;
   }
 
+  .modal__title {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 25px 22px 0 22px;
+  }
+
   .modal__content {
     max-width: 282px;
     max-height: 322px;
   }
 
   .modal__submit {
+    background-image: url(../images/320SubmitButton.svg);
     width: 238px;
+    height: 46px;
+    box-sizing: content-box;
+    padding: 0;
     margin: 46px 0 25px 0;
   }
 
