@@ -1,14 +1,13 @@
 .modal {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   top: 0;
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   align-content: center;
-  height: 1280px;
   display: none;
 }
 
@@ -24,7 +23,7 @@
   max-width: 430px;
   border-radius: 10px;
   position: relative;
-  margin: 195px 0 0 0;
+  margin: 0;
 }
 
 .modal__form {
@@ -61,7 +60,7 @@
 .modal__profile-name {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  font-family: "Inter";
+  font-family: "Inter", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -110,8 +109,6 @@
 @media screen and (max-width: 710px) {
   .modal {
     margin: 0;
-    height: 2814px;
-    align-items: flex-start;
   }
 
   .modal__title {
