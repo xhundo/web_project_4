@@ -116,6 +116,7 @@
 
   .modal__content {
     max-width: 282px;
+    max-height: 322px;
   }
 
   .modal__submit {
