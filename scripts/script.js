@@ -4,8 +4,8 @@ const modalProfileButtonClose = modalProfile.querySelector(
 );
 const modalOpen = document.querySelector("#modal-open");
 const modalForm = document.forms["profile-form"];
-const nameInput = modalForm.name;
-const jobInput = modalForm.description;
+const nameInput = document.querySelector("#modal-name");
+const jobInput = document.querySelector("#modal-description");
 const profileName = document.querySelector("#profile-name");
 const profileAbout = document.querySelector("#profile-about");
 
@@ -17,12 +17,6 @@ modalOpen.addEventListener("click", () => {
   modalProfile.classList.add("modal_open");
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
-});
-
-modalProfile.addEventListener("click", (e) => {
-  if (e.target === modalForm) {
-    modalProfile.classList.remove("modal_open");
-  }
 });
 
 modalForm.addEventListener("submit", (e) => {

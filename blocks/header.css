@@ -3,18 +3,12 @@
   display: flex;
   flex-direction: column;
   max-width: 880px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
 .header__logo {
   width: 173px;
   margin: 45px 707px 41px 0;
-}
-
-.header__line {
-  border: 1px solid rgba(54, 54, 54, 0.7);
-  margin: 0;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 @media screen and (max-width: 710px) {
@@ -26,10 +20,5 @@
   .header__logo {
     width: 126px;
     margin: 28px 167px 32px 27px;
-  }
-
-  .header__line {
-    max-width: 320px;
-    margin: 0;
   }
 }

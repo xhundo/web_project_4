@@ -57,34 +57,23 @@
   line-height: 29px;
 }
 
-.modal__profile-name {
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+.modal__input {
   font-family: "Inter", "Arial", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   padding: 0 0 13px 0;
-}
-
-.modal__profile-name::placeholder {
-  color: #000;
-}
-
-.modal__profile-description {
-  font-family: "Inter", "Arial", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
-  color: #000;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 0 0 13px 0;
   margin: 29px 0 0 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.modal__profile-description::placeholder {
+.modal__input::placeholder {
   color: #000;
+}
+
+.modal__input:first-of-type {
+  margin: 0;
 }
 
 .modal-button__close {
@@ -119,7 +108,6 @@
 
   .modal__content {
     max-width: 282px;
-    max-height: 322px;
   }
 
   .modal__submit {
