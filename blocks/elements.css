@@ -11,12 +11,17 @@
   max-width: 282px;
   background-color: #fff;
   border-radius: 10px 10px 10px 10px;
+  position: relative;
 }
 
 .elements__image {
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
+}
+
+.elements__image:hover {
+  cursor: pointer;
 }
 
 .elements__text {
@@ -60,6 +65,25 @@
   background-image: url(../images/Union.svg);
   background-repeat: no-repeat;
   transition: 0.3s ease-in;
+}
+
+.elements__button-trash {
+  background-image: url(../images/trashbutton.svg);
+  border: none;
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  top: 20px;
+  right: 13px;
+  background-color: transparent;
+  padding: 0;
+}
+
+.elements__button-trash:hover {
+  opacity: 60%;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 710px) {

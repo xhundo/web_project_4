@@ -35,7 +35,7 @@
             />
           </button>
         </div>
-        <button type="button" class="profile__addbutton">
+        <button type="button" class="profile__addbutton" id="modal_place-open">
           <img
             class="profile-button__add"
             src="./images/addbuttonvector.svg"
@@ -43,110 +43,7 @@
           />
         </button>
       </section>
-      <section class="elements">
-        <div class="elements__card">
-          <img
-            class="elements__image"
-            src="./images/mike-cox-hlzLVvJy6lI-unsplash.jpg"
-            alt="Venice Beach"
-          />
-          <div class="elements__text">
-            <h2 class="elements__title">Venice Beach, CA</h2>
-            <button type="button" class="elements__button">
-              <img
-                class="button__vector"
-                src="./images/Likebutton.svg"
-                alt="button"
-              />
-            </button>
-          </div>
-        </div>
-        <div class="elements__card">
-          <img
-            class="elements__image"
-            src="./images/ryan-spencer-Um9AkOiIDcU-unsplash.jpg"
-            alt="Times Square"
-          />
-          <div class="elements__text">
-            <h2 class="elements__title">Miami, FL</h2>
-            <button type="button" class="elements__button">
-              <img
-                class="button__vector"
-                src="./images/Likebutton.svg"
-                alt="button"
-              />
-            </button>
-          </div>
-        </div>
-        <div class="elements__card">
-          <img
-            class="elements__image"
-            src="./images/lo-sarno-bUZxr4cZYME-unsplash.jpg"
-            alt="Venice Beach"
-          />
-          <div class="elements__text">
-            <h2 class="elements__title">New York, NY</h2>
-            <button type="button" class="elements__button">
-              <img
-                class="button__vector"
-                src="./images/Likebutton.svg"
-                alt="button"
-              />
-            </button>
-          </div>
-        </div>
-        <div class="elements__card">
-          <img
-            class="elements__image"
-            src="./images/talia-XTiutgITEAI-unsplash.jpg"
-            alt="Venice Beach"
-          />
-          <div class="elements__text">
-            <h2 class="elements__title">Orlando, FL</h2>
-            <button type="button" class="elements__button">
-              <img
-                class="button__vector"
-                src="./images/Likebutton.svg"
-                alt="button"
-              />
-            </button>
-          </div>
-        </div>
-        <div class="elements__card">
-          <img
-            class="elements__image"
-            src="./images/neal-kharawala-XXA8PTuLD1Y-unsplash.jpg"
-            alt="Venice Beach"
-          />
-          <div class="elements__text">
-            <h2 class="elements__title">Chicago, IL</h2>
-            <button type="button" class="elements__button">
-              <img
-                class="button__vector"
-                src="./images/Likebutton.svg"
-                alt="button"
-              />
-            </button>
-          </div>
-        </div>
-        <div class="elements__card">
-          <img
-            class="elements__image"
-            src="./images/lerone-pieters-UQk6XskNpQU-unsplash.jpg"
-            alt="Venice Beach"
-          />
-          <div class="elements__text">
-            <h2 class="elements__title">Brooklyn, NY</h2>
-            <button type="button" class="elements__button">
-              <img
-                class="button__vector"
-                src="./images/Likebutton.svg"
-                alt="button"
-              />
-            </button>
-          </div>
-        </div>
-      </section>
+      <section class="elements"></section>
     </main>
 
     <footer class="footer">
@@ -162,6 +59,7 @@
             placeholder="Enter Name"
             name="name"
             id="modal-name"
+            required
           />
           <input
             class="modal__input"
@@ -169,12 +67,65 @@
             placeholder="Enter Job"
             name="description"
             id="modal-description"
+            required
           />
           <button type="button" class="modal-button__close"></button>
           <button type="submit" class="modal__submit"></button>
         </form>
       </div>
     </div>
+    <div class="modal__place" id="modal-place">
+      <div class="modal__place-content">
+        <form class="modal__place-form" id="modal_place-form">
+          <h3 class="modal__place-title">New place</h3>
+          <input
+            class="modal__place-input"
+            type="text"
+            placeholder="Title"
+            id="modal-title"
+            name="title"
+            required
+          />
+          <input
+            class="modal__place-input"
+            type="text"
+            placeholder="Image link"
+            name="image link"
+            id="modal-link"
+            required
+          />
+          <button
+            type="submit"
+            class="modal__place-submit"
+            id="place__submit"
+          ></button>
+          <button type="button" class="modal__place-close"></button>
+        </form>
+      </div>
+    </div>
+    <div class="modal__image" id="image-modal">
+      <div class="modal__image-content">
+        <img class="modal__place-image" src=" " alt=" " />
+        <p class="modal__caption">Image</p>
+        <button class="modal__image-button" type="button"></button>
+      </div>
+    </div>
+    <template id="card-template">
+      <div class="elements__card">
+        <img class="elements__image" src=" " />
+        <div class="elements__text">
+          <h2 class="elements__title"></h2>
+          <button type="button" class="elements__button">
+            <img
+              class="button__vector"
+              src="./images/Likebutton.svg"
+              alt="button"
+            />
+          </button>
+        </div>
+        <button class="elements__button-trash"></button>
+      </div>
+    </template>
     <script src="./scripts/script.js"></script>
   </body>
 </html>

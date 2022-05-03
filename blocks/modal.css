@@ -8,11 +8,17 @@
   align-items: center;
   justify-content: center;
   align-content: center;
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.6s, opacity 0.6s linear;
 }
 
 .modal_open {
   display: flex;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.6s linear;
 }
 
 .modal__content {
@@ -95,6 +101,172 @@
   transition: 0.2s ease-in;
 }
 
+.modal__place {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.6s, opacity 0.6s linear;
+}
+
+.modal_place-open {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.6s linear;
+}
+
+.modal__place-content {
+  background-color: #fff;
+  width: 430px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal__place-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__place-button {
+  background-image: url(../images/SubmitButtonAdd.svg);
+  width: 358px;
+}
+
+.modal__place-input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 358px;
+  margin: 54px 36px 29px 36px;
+  padding: 0 0 13px 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  text-align: left;
+}
+
+.modal__place-input:nth-of-type(2n) {
+  margin: 0 36px 48px 36px;
+}
+
+.modal__place-input::placeholder {
+  color: rgba(196, 196, 196, 1);
+}
+
+.modal__place-submit {
+  margin: 0 36px 36px 36px;
+  width: 358px;
+  height: 50px;
+  border: none;
+  border-radius: 2px;
+  padding: 0;
+  background-image: url("../images/SubmitButtonAdd.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.modal__place-submit:hover {
+  cursor: pointer;
+  opacity: 80%;
+  transition: 0.3s ease-in-out;
+}
+
+.modal__place-title {
+  margin: 34px 64px 0 36px;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.modal__place-close {
+  background-image: url(../images/Close\ IconAdd.svg);
+  position: absolute;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  top: -35px;
+  right: -35px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.modal__place-close:hover {
+  cursor: pointer;
+  opacity: 60%;
+  transition: 0.3s ease-in-out;
+}
+
+.modal__image {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.6s, opacity 0.6s linear;
+}
+
+.modal_image-open {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.6s linear;
+}
+
+.modal__image-content {
+  position: relative;
+}
+
+.modal__caption {
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  text-align: left;
+  color: #ffffff;
+  margin: 10px 0 0 0;
+}
+
+.modal__image-button {
+  border: none;
+  background-color: transparent;
+  background-image: url(../images/Close\ Icon.svg);
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  position: absolute;
+  top: -47px;
+  right: -44px;
+}
+
+.modal__image-button:hover {
+  cursor: pointer;
+  opacity: 60%;
+  transition: 0.3s ease-in;
+}
+
+.modal__place-image {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
 @media screen and (max-width: 710px) {
   .modal {
     margin: 0;
@@ -130,5 +302,47 @@
     background-position: center;
     top: -39px;
     right: 5px;
+  }
+
+  .modal__place-content {
+    width: 282px;
+  }
+
+  .modal__place-form {
+    width: 282px;
+  }
+
+  .modal__place-input {
+    width: 238px;
+    margin: 76px 22px 30px 22px;
+    padding: 0 0 9px 0;
+  }
+
+  .modal__place-submit {
+    width: 238px;
+    margin: 0 22px 25px 22px;
+  }
+
+  .modal__place-input:nth-of-type(2n) {
+    margin: 0 22px 46px 22px;
+  }
+
+  .modal__place-close {
+    top: -46px;
+    right: -5px;
+  }
+
+  .modal__place-close {
+    background-size: contain;
+    width: 26px;
+    height: 26px;
+  }
+
+  .modal__image-button {
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    top: -41px;
+    right: 1px;
   }
 }
