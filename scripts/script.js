@@ -114,7 +114,14 @@ const getCardElement = (data) => {
   });
   cardElement
     .querySelector(".elements__button")
-    .addEventListener("click", () => {});
+    .addEventListener("click", (evt) => {
+      if (evt.target.classList.contains("elements__button_active")) {
+        evt.target.classList.remove("elements__button_active");
+      } else {
+        evt.target.classList.add("elements__button_active");
+      }
+    });
+
   return cardElement;
 };
 
