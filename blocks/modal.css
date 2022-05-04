@@ -262,7 +262,7 @@
   transition: 0.3s ease-in;
 }
 
-.modal-place__image {
+.modal-image__place {
   max-width: 75vw;
   max-height: 75vh;
 }
