@@ -101,7 +101,7 @@
   transition: 0.2s ease-in;
 }
 
-.modal__place {
+.modal-place {
   position: fixed;
   top: 0;
   right: 0;
@@ -123,7 +123,7 @@
   transition: visibility 0s, opacity 0.6s linear;
 }
 
-.modal__place-content {
+.modal-place__content {
   background-color: #fff;
   width: 430px;
   border-radius: 10px;
@@ -304,7 +304,7 @@
     right: 5px;
   }
 
-  .modal__place-content {
+  .modal-place__content {
     width: 282px;
   }
 
