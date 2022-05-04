@@ -82,7 +82,7 @@
   margin: 0;
 }
 
-.modal-button__close {
+.modal__button-close {
   position: absolute;
   top: -35px;
   right: -35px;
@@ -95,7 +95,7 @@
   padding: 0;
 }
 
-.modal-button__close:hover {
+.modal__button-close:hover {
   opacity: 0.6;
   cursor: pointer;
   transition: 0.2s ease-in;
@@ -135,7 +135,7 @@
   flex-direction: column;
 }
 
-.modal__place-button {
+.modal-place__button {
   background-image: url(../images/SubmitButtonAdd.svg);
   width: 358px;
 }
@@ -161,7 +161,7 @@
   color: rgba(196, 196, 196, 1);
 }
 
-.modal__place-submit {
+.modal-place__submit {
   margin: 0 36px 36px 36px;
   width: 358px;
   height: 50px;
@@ -189,7 +189,7 @@
   text-align: left;
 }
 
-.modal__place-close {
+.modal-place__close {
   background-image: url(../images/Close\ IconAdd.svg);
   position: absolute;
   background-color: transparent;
@@ -202,13 +202,13 @@
   padding: 0;
 }
 
-.modal__place-close:hover {
+.modal-place__close:hover {
   cursor: pointer;
   opacity: 60%;
   transition: 0.3s ease-in-out;
 }
 
-.modal__image {
+.modal-image {
   position: fixed;
   top: 0;
   right: 0;
@@ -229,11 +229,11 @@
   transition: visibility 0s, opacity 0.6s linear;
 }
 
-.modal__image-content {
+.modal-image__content {
   position: relative;
 }
 
-.modal__caption {
+.modal-caption {
   font-family: "Inter", "Arial", sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -243,7 +243,7 @@
   margin: 10px 0 0 0;
 }
 
-.modal__image-button {
+.modal-image__button {
   border: none;
   background-color: transparent;
   background-image: url(../images/Close\ Icon.svg);
@@ -256,13 +256,13 @@
   right: -44px;
 }
 
-.modal__image-button:hover {
+.modal-image__button:hover {
   cursor: pointer;
   opacity: 60%;
   transition: 0.3s ease-in;
 }
 
-.modal__place-image {
+.modal-place__image {
   max-width: 75vw;
   max-height: 75vh;
 }
@@ -295,7 +295,7 @@
     margin: 76px 22px 0 22px;
   }
 
-  .modal-button__close {
+  .modal__button-close {
     width: 26px;
     height: 26px;
     background-image: url(../images/Close\ IconMobile.svg);
@@ -318,7 +318,7 @@
     padding: 0 0 9px 0;
   }
 
-  .modal__place-submit {
+  .modal-place__submit {
     width: 238px;
     margin: 0 22px 25px 22px;
   }
@@ -327,7 +327,7 @@
     margin: 0 22px 46px 22px;
   }
 
-  .modal__place-close {
+  .modal-place__close {
     top: -46px;
     right: -5px;
     background-size: contain;
@@ -335,7 +335,7 @@
     height: 26px;
   }
 
-  .modal__image-button {
+  .modal-image__button {
     background-size: contain;
     width: 30px;
     height: 30px;

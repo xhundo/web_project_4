@@ -1,6 +1,6 @@
 const modalProfile = document.querySelector("#modal-profile");
 const modalProfileButtonClose = modalProfile.querySelector(
-  ".modal-button__close"
+  ".modal__button-close"
 );
 const modalOpen = document.querySelector("#modal-open");
 const modalForm = document.forms["profile-form"];
@@ -9,14 +9,14 @@ const jobInput = document.querySelector("#modal-description");
 const profileName = document.querySelector("#profile-name");
 const profileAbout = document.querySelector("#profile-about");
 const modalPlaceForm = document.querySelector("#modal_place-form");
-const modalPlaceCloseButton = document.querySelector(".modal__place-close");
+const modalPlaceCloseButton = document.querySelector(".modal-place__close");
 const modalPlaceOpenButton = document.querySelector("#modal_place-open");
 const modalPlace = document.querySelector("#modal-place");
-const modalPlaceSubmit = document.querySelector(".modal__place-submit");
+const modalPlaceSubmit = document.querySelector(".modal-place__submit");
 const imageModal = document.querySelector("#image-modal");
-const imageElement = document.querySelector(".modal__place-image");
-const imageCaption = document.querySelector(".modal__caption");
-const imageModalClose = document.querySelector(".modal__image-button");
+const imageElement = document.querySelector(".modal-place__image");
+const imageCaption = document.querySelector(".modal-caption");
+const imageModalClose = document.querySelector(".modal-image__button");
 const initialCards = [
   {
     name: "Venice Beach, CA",
