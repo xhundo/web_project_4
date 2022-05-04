@@ -330,9 +330,6 @@
   .modal__place-close {
     top: -46px;
     right: -5px;
-  }
-
-  .modal__place-close {
     background-size: contain;
     width: 26px;
     height: 26px;
