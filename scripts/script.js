@@ -2,8 +2,8 @@ const modalProfile = document.querySelector("#modal-profile");
 const modalProfileButtonClose = modalProfile.querySelector(
   ".modal__button-close"
 );
-const modalOpen = document.querySelector("#modal-open");
-const modalForm = document.forms["profile-form"];
+const openProfileModalButton = document.querySelector("#modal-open");
+const profileModalForm = document.forms["profile-form"];
 const nameInput = document.querySelector("#modal-name");
 const jobInput = document.querySelector("#modal-description");
 const profileName = document.querySelector("#profile-name");
@@ -52,32 +52,48 @@ const elementsWrap = document.querySelector(".elements");
 const titleInputValue = modalPlaceForm.querySelector("#modal-title");
 const linkInputValue = modalPlaceForm.querySelector("#modal-link");
 
-modalProfileButtonClose.addEventListener("click", () => {
-  modalProfile.classList.remove("modal_open");
-});
-
-modalOpen.addEventListener("click", () => {
+function openModal() {
   modalProfile.classList.add("modal_open");
+}
+
+function closeModal() {
+  modalProfile.classList.toggle("modal_open");
+}
+
+function fillProfileForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
+}
+
+openProfileModalButton.addEventListener("click", () => {
+  openModal();
+  fillProfileForm();
 });
 
-modalForm.addEventListener("submit", (e) => {
+modalProfileButtonClose.addEventListener("click", () => {
+  closeModal();
+});
+
+profileModalForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileName.textContent = nameInput.value;
   profileAbout.textContent = jobInput.value;
-  modalProfile.classList.remove("modal_open");
+  closeModal();
 });
 
 modalPlaceCloseButton.addEventListener("click", () => {
-  modalPlace.classList.remove("modal_place-open");
+  modalPlace.classList.toggle("modal_open");
 });
 
 modalPlaceOpenButton.addEventListener("click", () => {
-  modalPlace.classList.add("modal_place-open");
+  modalPlace.classList.add("modal_open");
 });
 
-function modalPlaceFormSubmitHandler(evt) {
+imageModalClose.addEventListener("click", () => {
+  imageModal.classList.remove("modal-open");
+});
+
+function handlePlaceFormSubmit(evt) {
   evt.preventDefault();
   renderCard(
     {
@@ -86,17 +102,17 @@ function modalPlaceFormSubmitHandler(evt) {
     },
     elementsWrap
   );
+  modalPlaceForm.reset();
+  modalPlace.classList.toggle("modal_open");
 }
 
-modalPlaceForm.addEventListener("submit", modalPlaceFormSubmitHandler);
-modalPlaceSubmit.addEventListener("click", () => {
-  modalPlace.classList.remove("modal_place-open");
-});
+modalPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
 
 const getCardElement = (data) => {
   const cardElement = cardTemplate.cloneNode(true);
   const deleteButton = cardElement.querySelector(".elements__button-trash");
   cardElement.querySelector(".elements__image").src = data.link;
+  cardElement.querySelector(".elements__image").alt = data.alt;
   cardElement.querySelector(".elements__title").textContent = data.name;
 
   deleteButton.addEventListener("click", () => {
@@ -107,11 +123,10 @@ const getCardElement = (data) => {
     .addEventListener("click", () => {
       imageElement.src = data.link;
       imageCaption.textContent = data.name;
-      imageModal.classList.add("modal_image-open");
+      imageElement.alt = data.name;
+      imageModal.alt = data.name;
+      imageModal.classList.add("modal-open");
     });
-  imageModalClose.addEventListener("click", () => {
-    imageModal.classList.remove("modal_image-open");
-  });
   cardElement
     .querySelector(".elements__button")
     .addEventListener("click", (evt) => {
