@@ -65,6 +65,11 @@ function fillProfileForm() {
   jobInput.value = profileAbout.textContent;
 }
 
+function fillProfileModal() {
+  profileName.textContent = nameInput.value;
+  profileAbout.textContent = jobInput.value;
+}
+
 openProfileModalButton.addEventListener("click", () => {
   openModal();
   fillProfileForm();
@@ -76,8 +81,7 @@ modalProfileButtonClose.addEventListener("click", () => {
 
 profileModalForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileAbout.textContent = jobInput.value;
+  fillProfileModal();
   closeModal();
 });
 
