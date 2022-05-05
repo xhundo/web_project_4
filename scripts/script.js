@@ -94,7 +94,7 @@ modalPlaceOpenButton.addEventListener("click", () => {
 });
 
 imageModalClose.addEventListener("click", () => {
-  imageModal.classList.remove("modal-open");
+  imageModal.classList.remove("modal_open");
 });
 
 function handlePlaceFormSubmit(evt) {
@@ -129,7 +129,7 @@ const getCardElement = (data) => {
       imageCaption.textContent = data.name;
       imageElement.alt = data.name;
       imageModal.alt = data.name;
-      imageModal.classList.add("modal-open");
+      imageModal.classList.add("modal_open");
     });
   cardElement
     .querySelector(".elements__button")
