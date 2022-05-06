@@ -52,12 +52,16 @@ const elementsWrap = document.querySelector(".elements");
 const titleInputValue = modalPlaceForm.querySelector("#modal-title");
 const linkInputValue = modalPlaceForm.querySelector("#modal-link");
 
-function openModal() {
+function openModal(modalProfile, modalPlace, imageModal) {
   modalProfile.classList.add("modal_open");
+  modalPlace.classList.add("modal_open");
+  imageModal.classList.add("modal_open");
 }
 
-function closeModal() {
+function closeModal(modalProfile, modalPlace, imageModal) {
   modalProfile.classList.toggle("modal_open");
+  modalPlace.classList.toggle("modal_open");
+  imageModal.classList.toggle("modal_open");
 }
 
 function fillProfileForm() {
@@ -65,36 +69,36 @@ function fillProfileForm() {
   jobInput.value = profileAbout.textContent;
 }
 
-function fillProfileModal() {
+function fillProfileInfo() {
   profileName.textContent = nameInput.value;
   profileAbout.textContent = jobInput.value;
 }
 
 openProfileModalButton.addEventListener("click", () => {
-  openModal();
   fillProfileForm();
+  openModal(modalProfile);
 });
 
 modalProfileButtonClose.addEventListener("click", () => {
-  closeModal();
+  closeModal(modalProfile);
 });
 
 profileModalForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  fillProfileModal();
-  closeModal();
+  fillProfileInfo();
+  closeModal(modalProfile);
 });
 
 modalPlaceCloseButton.addEventListener("click", () => {
-  modalPlace.classList.toggle("modal_open");
+  closeModal(modalPlace);
 });
 
 modalPlaceOpenButton.addEventListener("click", () => {
-  modalPlace.classList.add("modal_open");
+  openModal(modalPlace);
 });
 
 imageModalClose.addEventListener("click", () => {
-  imageModal.classList.remove("modal_open");
+  closeModal(imageModal);
 });
 
 function handlePlaceFormSubmit(evt) {
@@ -128,8 +132,7 @@ const getCardElement = (data) => {
       imageElement.src = data.link;
       imageCaption.textContent = data.name;
       imageElement.alt = data.name;
-      imageModal.alt = data.name;
-      imageModal.classList.add("modal_open");
+      openModal(imageModal);
     });
   cardElement
     .querySelector(".elements__button")
@@ -146,7 +149,7 @@ const getCardElement = (data) => {
 
 const renderCard = (data, wrapper) => {
   const newCard = getCardElement(data);
-  wrapper.append(newCard);
+  wrapper.prepend(newCard);
 };
 
 initialCards.forEach((data) => {
