@@ -19,28 +19,28 @@ const imageCaption = document.querySelector(".modal-caption");
 const imageModalClose = document.querySelector(".modal-image__button");
 const initialCards = [
   {
-    name: "Venice Beach, CA",
-    link: "https://images.unsplash.com/photo-1648604811521-56f6b8084325?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-  },
-  {
-    name: "Miami, FL",
-    link: "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-  },
-  {
-    name: "New York, NY",
-    link: "https://images.unsplash.com/photo-1582140388172-5651e808ab45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=926&q=80",
-  },
-  {
-    name: "Orlando, FL",
-    link: "https://images.unsplash.com/photo-1601051297657-39a9b2ce2cdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80",
+    name: "Brooklyn, NY",
+    link: "https://images.unsplash.com/photo-1580614875936-4888ac34052e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
   },
   {
     name: "Chicago, IL",
     link: "https://images.unsplash.com/photo-1477414956199-7dafc86a4f1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
   },
   {
-    name: "Brooklyn, NY",
-    link: "https://images.unsplash.com/photo-1580614875936-4888ac34052e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+    name: "Orlando, FL",
+    link: "https://images.unsplash.com/photo-1601051297657-39a9b2ce2cdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80",
+  },
+  {
+    name: "New York, NY",
+    link: "https://images.unsplash.com/photo-1582140388172-5651e808ab45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=926&q=80",
+  },
+  {
+    name: "Miami, FL",
+    link: "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+  },
+  {
+    name: "Venice Beach, CA",
+    link: "https://images.unsplash.com/photo-1648604811521-56f6b8084325?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
   },
 ];
 
@@ -52,16 +52,12 @@ const elementsWrap = document.querySelector(".elements");
 const titleInputValue = modalPlaceForm.querySelector("#modal-title");
 const linkInputValue = modalPlaceForm.querySelector("#modal-link");
 
-function openModal(modalProfile, modalPlace, imageModal) {
-  modalProfile.classList.add("modal_open");
-  modalPlace.classList.add("modal_open");
-  imageModal.classList.add("modal_open");
+function openModal(modal) {
+  modal.classList.add("modal_open");
 }
 
-function closeModal(modalProfile, modalPlace, imageModal) {
-  modalProfile.classList.toggle("modal_open");
-  modalPlace.classList.toggle("modal_open");
-  imageModal.classList.toggle("modal_open");
+function closeModal(modal) {
+  modal.classList.toggle("modal_open");
 }
 
 function fillProfileForm() {
