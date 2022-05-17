@@ -60,7 +60,10 @@
             name="name"
             id="modal-name"
             required
+            minlength="2"
+            maxlength="40"
           />
+          <span id="modal-name-error" class="modal-profile__error-text"></span>
           <input
             class="modal__input"
             type="text"
@@ -68,7 +71,13 @@
             name="description"
             id="modal-description"
             required
+            minlength="2"
+            maxlength="200"
           />
+          <span
+            id="modal-description-error"
+            class="modal-profile__error-text"
+          ></span>
           <button type="button" class="modal__button-close"></button>
           <button type="submit" class="modal__submit"></button>
         </form>
@@ -84,17 +93,23 @@
             placeholder="Title"
             id="modal-title"
             name="title"
+            required
+            minlength="1"
+            maxlength="30"
           />
+          <span id="modal-title-error" class="modal__error-text"></span>
           <input
             class="modal-place__input"
-            type="text"
+            type="url"
             placeholder="Image link"
             name="image link"
             id="modal-link"
+            required
           />
+          <span id="modal-link-error" class="modal__error-text"></span>
           <button
             type="submit"
-            class="modal-place__submit"
+            class="modal__submit"
             id="place__submit"
           ></button>
           <button type="button" class="modal-place__close"></button>
@@ -124,6 +139,7 @@
         <button class="elements__button-trash"></button>
       </div>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/script.js"></script>
   </body>
 </html>

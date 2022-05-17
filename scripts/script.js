@@ -57,7 +57,7 @@ function openModal(modal) {
 }
 
 function closeModal(modal) {
-  modal.classList.toggle("modal_open");
+  modal.classList.remove("modal_open");
 }
 
 function fillProfileForm() {
@@ -150,4 +150,40 @@ const renderCard = (data, wrapper) => {
 
 initialCards.forEach((data) => {
   renderCard(data, elementsWrap);
+});
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    closeModal(modalPlace);
+  }
+});
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    closeModal(modalProfile);
+  }
+});
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    closeModal(imageModal);
+  }
+});
+
+document.addEventListener("click", (evt) => {
+  if (evt.target === modalPlace) {
+    closeModal(modalPlace);
+  }
+});
+
+document.addEventListener("click", (evt) => {
+  if (evt.target === imageModal) {
+    closeModal(imageModal);
+  }
+});
+
+document.addEventListener("click", (evt) => {
+  if (evt.target === modalProfile) {
+    closeModal(modalProfile);
+  }
 });
