@@ -48,18 +48,6 @@
   transition: 0.3s ease-in;
 }
 
-.modal__submit_disabled {
-  margin: 48px 0 36px 0px;
-  background-image: url(../images/SubmitButtonDisabled.svg);
-  background-color: transparent;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: none;
-  width: 358px;
-  height: 50px;
-  border-radius: 2px;
-}
-
 .modal__title {
   margin: 34px 64px 0 36px;
   font-family: "Inter", "Arial", sans-serif;
@@ -178,10 +166,6 @@
   margin: 0;
 }
 
-.modal__error-text_visible {
-  visibility: visible;
-}
-
 .modal-profile__error-text {
   font-family: "Inter";
   font-size: 12px;
@@ -191,18 +175,26 @@
   margin: 5px 0 0 0;
 }
 
-.modal-profile__error-text_visible {
-  visibility: visible;
-}
-
 .modal-place__submit {
-  margin: 0 36px 36px 36px;
+  margin: 48px 0 36px 0;
   width: 358px;
   height: 50px;
   border: none;
   border-radius: 2px;
   padding: 0;
-  background-image: url("../images/SubmitButtonAdd.svg");
+  background-image: url("../images/Submit\ Button.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.modal-place__submit:disabled {
+  margin: 48px 0 36px 0;
+  width: 358px;
+  height: 50px;
+  border: none;
+  border-radius: 2px;
+  padding: 0;
+  background-image: url("../images/SubmitButtonDisabled.svg");
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -300,6 +292,18 @@
   visibility: visible;
   opacity: 1;
   transition: visibility 0s, opacity 0.6s linear;
+}
+
+.modal__button_disabled {
+  margin: 48px 0 36px 0px;
+  background-image: url(../images/SubmitButtonDisabled.svg);
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  width: 358px;
+  height: 50px;
+  border-radius: 2px;
 }
 
 @media screen and (max-width: 710px) {

@@ -1,6 +1,5 @@
 const showInputError = (input, formEl, settings) => {
   const errorSpan = formEl.querySelector("#" + input.id + "-error");
-  console.log(input.validationMessage);
   errorSpan.textContent = input.validationMessage;
   input.classList.add(settings.inputErrorClass);
 };
@@ -12,9 +11,7 @@ const hideInputError = (input, formEl, settings) => {
 };
 
 const checkInputValidity = (formEl, input, settings) => {
-  console.log(input.validity.valid);
   if (input.validity.valid) {
-    console.log("valid");
     hideInputError(input, formEl, settings);
   } else {
     showInputError(input, formEl, settings);
@@ -25,7 +22,6 @@ const hasValidInputs = (inputList) =>
   inputList.every((input) => input.validity.valid === true);
 
 const toggleButton = (inputList, button, settings) => {
-  console.log("hasValid", hasValidInputs(inputList));
   if (hasValidInputs(inputList)) {
     button.disabled = false;
     button.classList.remove(settings.inactiveButtonClass);
@@ -58,7 +54,7 @@ enableValidation({
   formSelector: ".modal__form, .modal-place__form",
   inputSelector: ".modal__input, .modal-place__input",
   submitButtonSelector: ".modal__submit, .modal-place__submit",
-  inactiveButtonClass: "modal__submit_disabled",
+  inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_error",
   errorClass: "modal__error-text_visible",
 });
