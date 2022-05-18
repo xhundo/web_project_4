@@ -75,6 +75,10 @@
   margin: 0;
 }
 
+.modal__input:last-of-type {
+  margin: 0;
+}
+
 .modal__button-close {
   position: absolute;
   top: -35px;
@@ -142,7 +146,7 @@
 }
 
 .modal-place__input:nth-of-type(2n) {
-  margin: 0 0 6px 0;
+  margin: 29px 0 0 0;
 }
 
 .modal-place__input::placeholder {
@@ -162,11 +166,15 @@
   margin: 5px 0 30px 0;
 }
 
+.modal__error-text_visible {
+  visibility: visible;
+}
+
 .modal__error-text:nth-of-type(2n) {
   margin: 0;
 }
 
-.modal-profile__error-text {
+.modal-place__error-text {
   font-family: "Inter";
   font-size: 12px;
   font-weight: 400;
