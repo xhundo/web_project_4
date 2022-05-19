@@ -12,7 +12,7 @@ const modalPlaceForm = document.querySelector("#modal_place-form");
 const modalPlaceCloseButton = document.querySelector(".modal-place__close");
 const modalPlaceOpenButton = document.querySelector("#modal_place-open");
 const modalPlace = document.querySelector("#modal-place");
-const modalPlaceSubmit = document.querySelector(".modal-place__submit");
+const modalPlaceSubmit = document.querySelector(".modal__submit");
 const imageModal = document.querySelector("#image-modal");
 const imageElement = document.querySelector(".modal-image__place");
 const imageCaption = document.querySelector(".modal-caption");
@@ -54,6 +54,10 @@ const linkInputValue = modalPlaceForm.querySelector("#modal-link");
 
 function openModal(modal) {
   modal.classList.add("modal_open");
+}
+
+function toggleModal(modal) {
+  modal.classList.toggle("modal_open");
 }
 
 function closeModal(modal) {
@@ -107,7 +111,8 @@ function handlePlaceFormSubmit(evt) {
     elementsWrap
   );
   modalPlaceForm.reset();
-  modalPlace.classList.toggle("modal_open");
+  toggleModal(modalPlace);
+  toggleButton();
 }
 
 modalPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
