@@ -52,16 +52,36 @@ const elementsWrap = document.querySelector(".elements");
 const titleInputValue = modalPlaceForm.querySelector("#modal-title");
 const linkInputValue = modalPlaceForm.querySelector("#modal-link");
 
+function closeModalByEscape(evt) {
+  if (evt.key === "Escape") {
+    closeModal(modalPlace);
+    closeModal(modalProfile);
+    closeModal(imageModal);
+  }
+}
+
+function closeModalOnRemoteClick(event) {
+  if (event.target === event.currentTarget) {
+    closeModal(event.target);
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_open");
+  document.addEventListener("keydown", closeModalByEscape);
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 
 function toggleModal(modal) {
   modal.classList.toggle("modal_open");
+  document.addEventListener("keydown", closeModalByEscape);
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_open");
+  document.removeEventListener("keydown", closeModalByEscape);
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 
 function fillProfileForm() {
@@ -112,7 +132,9 @@ function handlePlaceFormSubmit(evt) {
   );
   modalPlaceForm.reset();
   toggleModal(modalPlace);
-  toggleButton();
+
+  const button = modalPlaceForm.querySelector(settings.submitButtonSelector);
+  toggleButton(button, settings);
 }
 
 modalPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
@@ -155,40 +177,4 @@ const renderCard = (data, wrapper) => {
 
 initialCards.forEach((data) => {
   renderCard(data, elementsWrap);
-});
-
-document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    closeModal(modalPlace);
-  }
-});
-
-document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    closeModal(modalProfile);
-  }
-});
-
-document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    closeModal(imageModal);
-  }
-});
-
-document.addEventListener("click", (evt) => {
-  if (evt.target === modalPlace) {
-    closeModal(modalPlace);
-  }
-});
-
-document.addEventListener("click", (evt) => {
-  if (evt.target === imageModal) {
-    closeModal(imageModal);
-  }
-});
-
-document.addEventListener("click", (evt) => {
-  if (evt.target === modalProfile) {
-    closeModal(modalProfile);
-  }
 });

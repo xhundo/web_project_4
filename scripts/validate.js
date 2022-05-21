@@ -1,16 +1,25 @@
-const showInputError = (input, formEl, settings) => {
-  const errorSpan = formEl.querySelector("#" + input.id + "-error");
-  errorSpan.textContent = input.validationMessage;
+const settings = {
+  formSelector: ".modal__form, .modal-place__form",
+  inputSelector: ".modal__input, .modal-place__input",
+  submitButtonSelector: ".modal__submit, .modal-place__submit",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_error",
+  errorClass: "modal__error-text_visible",
+};
+
+const showInputError = (input, formEl) => {
+  const errorElement = formEl.querySelector("#" + input.id + "-error");
+  errorElement.textContent = input.validationMessage;
   input.classList.add(settings.inputErrorClass);
 };
 
-const hideInputError = (input, formEl, settings) => {
+const hideInputError = (input, formEl) => {
   const errorSpan = formEl.querySelector("#" + input.id + "-error");
   errorSpan.textContent = "";
   input.classList.remove(settings.inputErrorClass);
 };
 
-const checkInputValidity = (formEl, input, settings) => {
+const checkInputValidity = (formEl, input) => {
   if (input.validity.valid) {
     hideInputError(input, formEl, settings);
   } else {
@@ -21,8 +30,8 @@ const checkInputValidity = (formEl, input, settings) => {
 const hasValidInputs = (inputList) =>
   inputList.every((input) => input.validity.valid === true);
 
-const toggleButton = (inputList, button, settings) => {
-  if (hasValidInputs(inputList)) {
+const toggleButton = (button, settings, inputList) => {
+  if (inputList && hasValidInputs(inputList)) {
     button.disabled = false;
     button.classList.remove(settings.inactiveButtonClass);
   } else {
@@ -31,13 +40,13 @@ const toggleButton = (inputList, button, settings) => {
   }
 };
 
-setEventListeners = (formEl, settings) => {
+setEventListeners = (formEl) => {
   const inputList = [...formEl.querySelectorAll(settings.inputSelector)];
   const submitButton = formEl.querySelector(settings.submitButtonSelector);
   inputList.forEach((input) => {
     input.addEventListener("input", (e) => {
       checkInputValidity(formEl, input, settings);
-      toggleButton(inputList, submitButton, settings);
+      toggleButton(submitButton, settings, inputList);
     });
   });
 };
@@ -50,11 +59,4 @@ const enableValidation = (settings) => {
   });
 };
 
-enableValidation({
-  formSelector: ".modal__form, .modal-place__form",
-  inputSelector: ".modal__input, .modal-place__input",
-  submitButtonSelector: ".modal__submit, .modal-place__submit",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_error",
-  errorClass: "modal__error-text_visible",
-});
+enableValidation(settings);
