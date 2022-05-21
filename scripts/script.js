@@ -54,9 +54,8 @@ const linkInputValue = modalPlaceForm.querySelector("#modal-link");
 
 function closeModalByEscape(evt) {
   if (evt.key === "Escape") {
-    closeModal(modalPlace);
-    closeModal(modalProfile);
-    closeModal(imageModal);
+    const openedModal = document.querySelector(".modal_open");
+    closeModal(openedModal);
   }
 }
 

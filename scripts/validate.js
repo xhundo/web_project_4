@@ -7,15 +7,15 @@ const settings = {
   errorClass: "modal__error-text_visible",
 };
 
-const showInputError = (input, formEl) => {
+const showInputError = (input, formEl, settings) => {
   const errorElement = formEl.querySelector("#" + input.id + "-error");
   errorElement.textContent = input.validationMessage;
   input.classList.add(settings.inputErrorClass);
 };
 
 const hideInputError = (input, formEl) => {
-  const errorSpan = formEl.querySelector("#" + input.id + "-error");
-  errorSpan.textContent = "";
+  const errorElement = formEl.querySelector("#" + input.id + "-error");
+  errorElement.textContent = "";
   input.classList.remove(settings.inputErrorClass);
 };
 
