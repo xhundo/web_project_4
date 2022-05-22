@@ -13,13 +13,13 @@ const showInputError = (input, formEl, settings) => {
   input.classList.add(settings.inputErrorClass);
 };
 
-const hideInputError = (input, formEl) => {
+const hideInputError = (input, formEl, settings) => {
   const errorElement = formEl.querySelector("#" + input.id + "-error");
   errorElement.textContent = "";
   input.classList.remove(settings.inputErrorClass);
 };
 
-const checkInputValidity = (formEl, input) => {
+const checkInputValidity = (formEl, input, settings) => {
   if (input.validity.valid) {
     hideInputError(input, formEl, settings);
   } else {
@@ -40,7 +40,7 @@ const toggleButton = (button, settings, inputList) => {
   }
 };
 
-setEventListeners = (formEl) => {
+setEventListeners = (formEl, settings) => {
   const inputList = [...formEl.querySelectorAll(settings.inputSelector)];
   const submitButton = formEl.querySelector(settings.submitButtonSelector);
   inputList.forEach((input) => {
