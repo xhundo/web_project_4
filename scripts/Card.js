@@ -6,13 +6,15 @@ class Card {
   }
 
   _setEventListeners() {
-    deleteButton.addEventListener("click", () => this._handleDeleteCard);
+    this._element
+      .querySelector(".elements__button-trash")
+      .addEventListener("click", () => this._handleDeleteCard);
 
-    cardElement
+    this._element
       .querySelector(".elements__image")
       .addEventListener("click", () => this._handlePreviewPicture);
 
-    cardElement
+    this._element
       .querySelector(".elements__button")
       .addEventListener("click", () => this._handleLikeIcon);
   }
