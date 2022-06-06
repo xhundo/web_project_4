@@ -8,40 +8,50 @@ class FormValidator {
     this._formElements = formElements;
   }
 
-  _toggleButton(button, settings, inputList) {
+  _toggleButton(button, inputList) {
     if (inputList && hasValidInputs(inputList)) {
       button.disabled = false;
-      button.classList.remove(settings.inactiveButtonClass);
+      button.classList.remove(this._inactiveButtonClass);
     } else {
       button.disabled = true;
-      button.classList.add(settings.inactiveButtonClass);
+      button.classList.add(this._inactiveButtonClass);
     }
   }
 
   _showInputError(input, errorMessage) {
-    const errorElement = this._form.querySelector("#" + input.id + "-error");
+    const errorElement = this._formElements.querySelector(
+      "#" + input.id + "-error"
+    );
     errorElement.textContent = errorMessage;
     input.classList.add(this._inputErrorClass);
   }
 
-  _hasValidInputs() {}
+  _hasValidInputs(inputList) {
+    inputList.every((input) => input.validity.valid === true);
+  }
 
-  _checkInputValidity() {}
+  _checkInputValidity(input) {
+    if (input.validity.valid) {
+      hideInputError(input, this._formElements);
+    } else {
+      showInputError(input, this._formElements);
+    }
+  }
 
-  _setEventListners() {
-    this._inputList = this._form.querySelectorAll(this._inputSelector);
-    this._submitButton = this._form.querySelector(this._submitButtonSelector);
+  _setEventListeners(inputList, submitButton) {
+    inputList = this._formElements.querySelectorAll(this._inputSelector);
+    submitButton = this._formElements.querySelector(this._submitButtonSelector);
     inputList.forEach((input) => {
       input.addEventListener("input", (e) => {
-        checkInputValidity(this._form, input, settings);
-        toggleButton(submitButton, settings, inputList);
+        this._checkInputValidity(this._formElements, input);
+        toggleButton(this._submitButtonSelector, this._inputList);
       });
     });
   }
 
   enableValidation() {
     this._formElements.addEventListener("submit", (e) => e.preventDefault());
-    setEventListeners(this._formEl, settings);
+    this._setEventListeners(this._formElements);
   }
 }
 
