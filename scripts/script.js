@@ -150,7 +150,7 @@ const validationSettings = {
   errorClass: "modal__error-text_visible",
 };
 
-const editFormElement = profileModalForm.querySelector(".modal__form");
+const editFormElement = modalProfile.querySelector(".modal__form");
 const addFormElement = modalPlaceForm.querySelector(".modal-place__form");
 
 const editFormValidator = new FormValidator(

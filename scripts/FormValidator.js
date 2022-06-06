@@ -5,7 +5,7 @@ class FormValidator {
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
-    this._form = formElements;
+    this._formElements = formElements;
   }
 
   _toggleButton(button, settings, inputList) {
@@ -39,8 +39,8 @@ class FormValidator {
     });
   }
 
-  enableValidation(settings) {
-    this._formEl.addEventListener("submit", (e) => e.preventDefault());
+  enableValidation() {
+    this._formElements.addEventListener("submit", (e) => e.preventDefault());
     setEventListeners(formEl, settings);
   }
 }
