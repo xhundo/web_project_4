@@ -1,3 +1,6 @@
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
+
 const modalProfile = document.querySelector("#modal-profile");
 const modalProfileButtonClose = modalProfile.querySelector(
   ".modal__button-close"
@@ -17,6 +20,7 @@ const imageModal = document.querySelector("#image-modal");
 const imageElement = document.querySelector(".modal-image__place");
 const imageCaption = document.querySelector(".modal-caption");
 const imageModalClose = document.querySelector(".modal-image__button");
+const cardSelector = "#card-template";
 const initialCards = [
   {
     name: "Brooklyn, NY",
@@ -138,6 +142,26 @@ function handlePlaceFormSubmit(evt) {
 
 modalPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
 
+const validationSettings = {
+  inputSelector: ".modal__input, .modal-place__input",
+  submitButtonSelector: ".modal__submit, .modal-place__submit",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_error",
+  errorClass: "modal__error-text_visible",
+};
+
+const editFormElement = profileModalForm.querySelector(".modal__form");
+const addFormElement = modalPlaceForm.querySelector(".modal-place__form");
+
+const editFormValidator = new FormValidator(
+  validationSettings,
+  editFormElement
+);
+const addFormValidator = new FormValidator(validationSettings, addFormElement);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
 const getCardElement = (data) => {
   const cardElement = cardTemplate.cloneNode(true);
   const deleteButton = cardElement.querySelector(".elements__button-trash");
@@ -170,8 +194,9 @@ const getCardElement = (data) => {
 };
 
 const renderCard = (data, wrapper) => {
+  const card = new Card(data, cardSelector);
   const newCard = getCardElement(data);
-  wrapper.prepend(newCard);
+  wrapper.prepend(card.getView());
 };
 
 initialCards.forEach((data) => {
