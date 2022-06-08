@@ -19,11 +19,35 @@ class Card {
       .addEventListener("click", () => this._handleLikeIcon);
   }
 
-  _handleLikeIcon() {}
+  _handleLikeIcon() {
+    this._element
+      .querySelector(".elements__button")
+      .addEventListener("click", (evt) => {
+        if (evt.target.classList.contains("elements__button_active")) {
+          evt.target.classList.remove("elements__button_active");
+        } else {
+          evt.target.classList.add("elements__button_active");
+        }
+      });
+  }
 
-  _handleDeleteCard() {}
+  _handleDeleteCard() {
+    const deleteButton = cardElement.querySelector(".elements__button-trash");
+    deleteButton.addEventListener("click", () => {
+      this._element.remove();
+    });
+  }
 
-  _handlePreviewPicture() {}
+  _handlePreviewPicture() {
+    this._element
+      .querySelector(".elements__image")
+      .addEventListener("click", () => {
+        imageElement.src = data.link;
+        imageCaption.textContent = data.name;
+        imageElement.alt = data.name;
+        openModal(imageModal);
+      });
+  }
 
   _getTemplate() {
     return document
@@ -37,7 +61,8 @@ class Card {
 
     this._element.querySelector(".elements__image").src = this._link;
     this._element.querySelector(".elements__title").textContent = this._name;
-    this._setEventListeners = this._setEventListeners();
+    this._setEventListeners();
+    return this._element;
   }
 }
 
