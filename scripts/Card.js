@@ -1,44 +1,48 @@
 class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, formElement) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._element = formElement;
   }
 
   _setEventListeners() {
     this._element
       .querySelector(".elements__button-trash")
-      .addEventListener("click", () => this._handleDeleteCard);
+      .addEventListener("click", this._handleDeleteCard);
 
     this._element
       .querySelector(".elements__image")
-      .addEventListener("click", () => this._handlePreviewPicture);
+      .addEventListener("click", this._handlePreviewPicture);
 
     this._element
       .querySelector(".elements__button")
-      .addEventListener("click", () => this._handleLikeIcon);
+      .addEventListener("click", this._handleLikeIcon);
   }
 
-  _handleLikeIcon() {
-    this._element
-      .querySelector(".elements__button")
-      .addEventListener("click", (evt) => {
-        if (evt.target.classList.contains("elements__button_active")) {
-          evt.target.classList.remove("elements__button_active");
-        } else {
-          evt.target.classList.add("elements__button_active");
-        }
-      });
+  _handleLikeIcon(evt) {
+    if (evt.target.classList.contains("elements__button_active")) {
+      evt.target.classList.remove("elements__button_active");
+    } else {
+      evt.target.classList.add("elements__button_active");
+    }
   }
 
   _handleDeleteCard() {
+    const cardTemplate = document
+      .querySelector("#card-template")
+      .content.querySelector(".elements__card");
+    const cardElement = cardTemplate.cloneNode(true);
     const deleteButton = cardElement.querySelector(".elements__button-trash");
     deleteButton.addEventListener("click", () => {
       this._element.remove();
     });
   }
 
-  _handlePreviewPicture() {
+  _handlePreviewPicture(data) {
+    const imageElement = document.querySelector(".modal-image__place");
+    const imageCaption = document.querySelector(".modal-caption");
+    const imageModal = document.querySelector("#image-modal");
     this._element
       .querySelector(".elements__image")
       .addEventListener("click", () => {

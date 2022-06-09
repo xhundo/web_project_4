@@ -25,7 +25,9 @@ class FormValidator {
   }
 
   _hasValidInputs(inputList) {
-    Array.from(inputList).every((input) => input.validity.valid === true);
+    return Array.from(inputList).every(
+      (input) => input.validity.valid === true
+    );
   }
 
   _toggleButton(button, inputList) {
