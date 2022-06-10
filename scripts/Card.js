@@ -5,7 +5,6 @@ class Card {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._element = formElement;
   }
 
   _setEventListeners() {
@@ -55,6 +54,10 @@ class Card {
     this._element = this._getTemplate();
 
     this._element.querySelector(".elements__image").src = this._link;
+
+    this._element.querySelector(
+      ".elements__image"
+    ).alt = `Photo of ${this._name}`;
     this._element.querySelector(".elements__title").textContent = this._name;
     this._setEventListeners();
     return this._element;

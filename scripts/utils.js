@@ -33,13 +33,3 @@ export function closeModal(modal) {
   document.removeEventListener("keydown", closeModalByEscape);
   modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
-
-export function fillProfileForm() {
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileAbout.textContent;
-}
-
-export function fillProfileInfo() {
-  profileName.textContent = nameInput.value;
-  profileAbout.textContent = jobInput.value;
-}
