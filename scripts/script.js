@@ -156,7 +156,7 @@ function handlePlaceFormSubmit(evt) {
   modalPlaceForm.reset();
   toggleModal(modalPlace);
 
-  editFormValidator.disableSubmitButton();
+  addFormValidator.disableSubmitButton();
 }
 
 modalPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
