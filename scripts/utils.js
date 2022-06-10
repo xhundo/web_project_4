@@ -1,8 +1,3 @@
-export const nameInput = document.querySelector("#modal-name");
-export const jobInput = document.querySelector("#modal-description");
-export const profileName = document.querySelector("#profile-name");
-export const profileAbout = document.querySelector("#profile-about");
-
 export function closeModalByEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_open");

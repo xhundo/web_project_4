@@ -30,7 +30,7 @@ class FormValidator {
     );
   }
 
-  disableSubmitButton(inputList) {
+  toggleSubmitButton(inputList) {
     const submitButton = this._formElement.querySelector(
       this._submitButtonSelector
     );
@@ -61,7 +61,7 @@ class FormValidator {
     inputList.forEach((input) => {
       input.addEventListener("input", (e) => {
         this._checkInputValidity(input);
-        this.disableSubmitButton(submitButton);
+        this.toggleSubmitButton(inputList);
       });
     });
   }
