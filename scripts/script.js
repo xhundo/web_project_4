@@ -1,15 +1,6 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 
-const settings = {
-  formSelector: ".modal__form, .modal-place__form",
-  inputSelector: ".modal__input, .modal-place__input",
-  submitButtonSelector: ".modal__submit, .modal-place__submit",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_error",
-  errorClass: "modal__error-text_visible",
-};
-
 const modalProfile = document.querySelector("#modal-profile");
 const modalProfileButtonClose = modalProfile.querySelector(
   ".modal__button-close"
@@ -133,24 +124,6 @@ imageModalClose.addEventListener("click", () => {
   closeModal(imageModal);
 });
 
-function handlePlaceFormSubmit(evt) {
-  evt.preventDefault();
-  renderCard(
-    {
-      name: titleInputValue.value,
-      link: linkInputValue.value,
-    },
-    elementsWrap
-  );
-  modalPlaceForm.reset();
-  toggleModal(modalPlace);
-
-  const button = modalPlaceForm.querySelector(settings.submitButtonSelector);
-  toggleButton(button, settings);
-}
-
-modalPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
-
 const validationSettings = {
   inputSelector: ".modal__input, .modal-place__input",
   submitButtonSelector: ".modal__submit, .modal-place__submit",
@@ -170,6 +143,23 @@ const addFormValidator = new FormValidator(validationSettings, addFormElement);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+
+function handlePlaceFormSubmit(evt) {
+  evt.preventDefault();
+  renderCard(
+    {
+      name: titleInputValue.value,
+      link: linkInputValue.value,
+    },
+    elementsWrap
+  );
+  modalPlaceForm.reset();
+  toggleModal(modalPlace);
+
+  editFormValidator.disableSubmitButton();
+}
+
+modalPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
 
 export const getCardElement = (data) => {
   const cardElement = cardTemplate.cloneNode(true);

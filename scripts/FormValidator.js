@@ -30,6 +30,14 @@ class FormValidator {
     );
   }
 
+  disableSubmitButton() {
+    const submitButton = this._formElements.querySelector(
+      this._submitButtonSelector
+    );
+    submitButton.disabled = true;
+    submitButton.classList.add(this._inactiveButtonClass);
+  }
+
   _toggleButton(button, inputList) {
     if (inputList && this._hasValidInputs(inputList)) {
       button.disabled = false;
