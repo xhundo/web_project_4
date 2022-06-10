@@ -1,3 +1,5 @@
+import { openModal } from "./utils.js";
+
 class Card {
   constructor(data, cardSelector, formElement) {
     this._name = data.name;
@@ -9,11 +11,11 @@ class Card {
   _setEventListeners() {
     this._element
       .querySelector(".elements__button-trash")
-      .addEventListener("click", this._handleDeleteCard);
+      .addEventListener("click", () => this._handleDeleteCard());
 
     this._element
       .querySelector(".elements__image")
-      .addEventListener("click", this._handlePreviewPicture);
+      .addEventListener("click", () => this._handlePreviewPicture());
 
     this._element
       .querySelector(".elements__button")
@@ -29,28 +31,17 @@ class Card {
   }
 
   _handleDeleteCard() {
-    const cardTemplate = document
-      .querySelector("#card-template")
-      .content.querySelector(".elements__card");
-    const cardElement = cardTemplate.cloneNode(true);
-    const deleteButton = cardElement.querySelector(".elements__button-trash");
-    deleteButton.addEventListener("click", () => {
-      this._element.remove();
-    });
+    this._element.remove();
   }
 
-  _handlePreviewPicture(data) {
+  _handlePreviewPicture() {
     const imageElement = document.querySelector(".modal-image__place");
     const imageCaption = document.querySelector(".modal-caption");
     const imageModal = document.querySelector("#image-modal");
-    this._element
-      .querySelector(".elements__image")
-      .addEventListener("click", () => {
-        imageElement.src = data.link;
-        imageCaption.textContent = data.name;
-        imageElement.alt = data.name;
-        openModal(imageModal);
-      });
+    imageElement.src = this._link;
+    imageCaption.textContent = this._name;
+    imageElement.alt = this._name;
+    openModal(imageModal);
   }
 
   _getTemplate() {

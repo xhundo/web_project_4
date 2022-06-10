@@ -1,6 +1,15 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 
+const settings = {
+  formSelector: ".modal__form, .modal-place__form",
+  inputSelector: ".modal__input, .modal-place__input",
+  submitButtonSelector: ".modal__submit, .modal-place__submit",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_error",
+  errorClass: "modal__error-text_visible",
+};
+
 const modalProfile = document.querySelector("#modal-profile");
 const modalProfileButtonClose = modalProfile.querySelector(
   ".modal__button-close"
@@ -162,7 +171,7 @@ const addFormValidator = new FormValidator(validationSettings, addFormElement);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-const getCardElement = (data) => {
+export const getCardElement = (data) => {
   const cardElement = cardTemplate.cloneNode(true);
   const deleteButton = cardElement.querySelector(".elements__button-trash");
   cardElement.querySelector(".elements__image").src = data.link;
@@ -193,7 +202,7 @@ const getCardElement = (data) => {
   return cardElement;
 };
 
-const renderCard = (data, wrapper) => {
+export const renderCard = (data, wrapper) => {
   const card = new Card(data, cardSelector);
   const newCard = getCardElement(data);
   wrapper.prepend(card.getView());
