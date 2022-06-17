@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around The U.S.</title>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="page">
     <header class="header">
       <img
         class="header__logo"
-        src="./images/Vector.svg"
+        src="<%=require('./images/Vector.svg')%>"
         alt="Around The U.S. logo"
       />
     </header>
@@ -19,7 +18,7 @@
       <section class="profile">
         <img
           class="profile__avatar"
-          src="./images/zac-wolff-2qfYizn95pk-unsplash.jpg"
+          src="<%=require('./images/zac-wolff-2qfYizn95pk-unsplash.jpg')%>"
           alt="Jacques Cousteau"
         />
         <div class="profile__info">
@@ -30,7 +29,7 @@
           <button type="button" class="profile__button" id="modal-open">
             <img
               class="profile__button-vector"
-              src="./images/editvector.svg"
+              src="<%=require('./images/editvector.svg')%>"
               alt="Button"
             />
           </button>
@@ -38,7 +37,7 @@
         <button type="button" class="profile__addbutton" id="modal_place-open">
           <img
             class="profile__button-add"
-            src="./images/addbuttonvector.svg"
+            src="<%=require('./images/addbuttonvector.svg')%>"
             alt="button"
           />
         </button>
@@ -129,7 +128,7 @@
           <button type="button" class="elements__button">
             <img
               class="button__vector"
-              src="./images/Likebutton.svg"
+              src="<%=require('./images/Likebutton.svg')%>"
               alt="button"
             />
           </button>
@@ -137,6 +136,5 @@
         <button class="elements__button-trash"></button>
       </div>
     </template>
-    <script type="module" src="./scripts/script.js"></script>
   </body>
 </html>
