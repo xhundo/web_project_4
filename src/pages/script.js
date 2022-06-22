@@ -79,11 +79,13 @@ openProfileModalButton.addEventListener("click", () => {
   fillProfileForm();
   const modalProfile = new Popup(profileModal);
   modalProfile.open();
+  modalProfile.setEventListeners();
 });
 
 modalProfileButtonClose.addEventListener("click", () => {
   const modalProfile = new Popup(profileModal);
   modalProfile.close();
+  modalProfile.setEventListeners();
 });
 
 profileModalForm.addEventListener("submit", (e) => {
@@ -94,6 +96,7 @@ profileModalForm.addEventListener("submit", (e) => {
 modalPlaceCloseButton.addEventListener("click", () => {
   const modalPlace = new Popup(placeModal);
   modalPlace.close();
+  modalPlace.setEventListeners();
 });
 
 const placeModal = {
@@ -107,6 +110,7 @@ const profileModal = {
 modalPlaceOpenButton.addEventListener("click", () => {
   const modalPlace = new Popup(placeModal);
   modalPlace.open();
+  modalPlace.setEventListeners();
 });
 
 imageModalClose.addEventListener("click", () => {
