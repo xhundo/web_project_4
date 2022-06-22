@@ -1,17 +1,19 @@
 import "../pages/index.css";
+import Popup from "../components/Popup.js";
 
-import FormValidator from "./FormValidator.js";
-import Card from "./Card.js";
-import { closeModalByEscape } from "./utils.js";
-import { closeModalOnRemoteClick } from "./utils.js";
-import { openModal } from "./utils.js";
-import { toggleModal } from "./utils.js";
-import { closeModal } from "./utils.js";
+import FormValidator from "../components/FormValidator";
+import Card from "../components/Card.js";
+import { closeModalByEscape } from "../utils/utils.js";
+import { closeModalOnRemoteClick } from "../utils/utils.js";
+import { openModal } from "../utils/utils.js";
+import { toggleModal } from "../utils/utils.js";
+import { closeModal } from "../utils/utils.js";
 
 const modalProfile = document.querySelector("#modal-profile");
 const modalProfileButtonClose = modalProfile.querySelector(
   ".modal__button-close"
 );
+
 const openProfileModalButton = document.querySelector("#modal-open");
 const profileModalForm = document.forms["profile-form"];
 const nameInput = document.querySelector("#modal-name");
@@ -75,25 +77,36 @@ function fillProfileInfo() {
 
 openProfileModalButton.addEventListener("click", () => {
   fillProfileForm();
-  openModal(modalProfile);
+  const modalProfile = new Popup(profileModal);
+  modalProfile.open();
 });
 
 modalProfileButtonClose.addEventListener("click", () => {
-  closeModal(modalProfile);
+  const modalProfile = new Popup(profileModal);
+  modalProfile.close();
 });
 
 profileModalForm.addEventListener("submit", (e) => {
   e.preventDefault();
   fillProfileInfo();
-  closeModal(modalProfile);
 });
 
 modalPlaceCloseButton.addEventListener("click", () => {
-  closeModal(modalPlace);
+  const modalPlace = new Popup(placeModal);
+  modalPlace.close();
 });
 
+const placeModal = {
+  popupSelector: "#modal-place",
+};
+
+const profileModal = {
+  popupSelector: "#modal-profile",
+};
+
 modalPlaceOpenButton.addEventListener("click", () => {
-  openModal(modalPlace);
+  const modalPlace = new Popup(placeModal);
+  modalPlace.open();
 });
 
 imageModalClose.addEventListener("click", () => {
