@@ -21,7 +21,6 @@ class Popup {
 
   setEventListeners() {
     this._popupElement.addEventListener("click", (evt) => {
-      evt.preventDefault();
       if (
         evt.target.classList.contains("modal") ||
         evt.target.classList.contains("modal__button-close") ||

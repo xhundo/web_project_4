@@ -1,7 +1,7 @@
 import "../pages/index.css";
 import Popup from "../components/Popup.js";
 import PopupWithImage from "../components/PopupWithImage.js";
-import PopupwithForm from "../components/PopupWithForm.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 
 import FormValidator from "../components/FormValidator";
@@ -12,10 +12,20 @@ import { openModal } from "../utils/utils.js";
 import { toggleModal } from "../utils/utils.js";
 import { closeModal } from "../utils/utils.js";
 
-const modalProfile = document.querySelector("#modal-profile");
-const modalProfileButtonClose = modalProfile.querySelector(
-  ".modal__button-close"
-);
+const placeModal = {
+  popupSelector: "#modal-place",
+};
+
+const profileModal = {
+  popupSelector: "#modal-profile",
+};
+const modalPlace = new PopupWithForm(placeModal);
+modalPlace.setEventListeners();
+
+const modalProfile = new PopupWithForm(profileModal);
+modalProfile.setEventListeners();
+
+const modalProfileButtonClose = document.querySelector(".modal__button-close");
 
 const openProfileModalButton = document.querySelector("#modal-open");
 const profileModalForm = document.forms["profile-form"];
@@ -26,7 +36,7 @@ const profileAbout = document.querySelector("#profile-about");
 const modalPlaceForm = document.querySelector("#modal_place-form");
 const modalPlaceCloseButton = document.querySelector(".modal-place__close");
 const modalPlaceOpenButton = document.querySelector("#modal_place-open");
-const modalPlace = document.querySelector("#modal-place");
+
 const modalPlaceSubmit = document.querySelector(".modal__submit");
 const imageModal = document.querySelector("#image-modal");
 const imageElement = document.querySelector(".modal-image__place");
@@ -79,41 +89,26 @@ function fillProfileInfo() {
 }
 
 openProfileModalButton.addEventListener("click", () => {
-  fillProfileForm();
-  const modalProfile = new Popup(profileModal);
   modalProfile.open();
-  modalProfile.setEventListeners();
+  fillProfileForm();
 });
 
 modalProfileButtonClose.addEventListener("click", () => {
-  const modalProfile = new Popup(profileModal);
   modalProfile.close();
-  modalProfile.setEventListeners();
 });
 
 profileModalForm.addEventListener("submit", (e) => {
   e.preventDefault();
   fillProfileInfo();
+  toggleModal(modalProfile);
 });
 
 modalPlaceCloseButton.addEventListener("click", () => {
-  const modalPlace = new Popup(placeModal);
   modalPlace.close();
-  modalPlace.setEventListeners();
 });
 
-const placeModal = {
-  popupSelector: "#modal-place",
-};
-
-const profileModal = {
-  popupSelector: "#modal-profile",
-};
-
 modalPlaceOpenButton.addEventListener("click", () => {
-  const modalPlace = new Popup(placeModal);
   modalPlace.open();
-  modalPlace.setEventListeners();
 });
 
 imageModalClose.addEventListener("click", () => {
@@ -128,8 +123,8 @@ const validationSettings = {
   errorClass: "modal__error-text_visible",
 };
 
-const editFormElement = modalProfile.querySelector(".modal__form");
-const addFormElement = modalPlace.querySelector(".modal-place__form");
+const editFormElement = document.querySelector(".modal__form");
+const addFormElement = document.querySelector(".modal-place__form");
 
 const editFormValidator = new FormValidator(
   validationSettings,
