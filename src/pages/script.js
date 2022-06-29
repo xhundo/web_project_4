@@ -1,5 +1,8 @@
 import "../pages/index.css";
 import Popup from "../components/Popup.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupwithForm from "../components/PopupWithForm.js";
+import Section from "../components/Section.js";
 
 import FormValidator from "../components/FormValidator";
 import Card from "../components/Card.js";

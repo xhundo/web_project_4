@@ -4,12 +4,12 @@ class Popup {
   }
 
   open() {
-    this._popupElement.addEventListener("keydown", this._handleEscClose);
+    document.addEventListener("keydown", this._handleEscClose.bind(this));
     this._popupElement.classList.add("modal_open");
   }
 
   close() {
-    this._popupElement.removeEventListener("keydown", this._handleEscClose);
+    document.removeEventListener("keydown", this._handleEscClose.bind(this));
     this._popupElement.classList.remove("modal_open");
   }
 
