@@ -4,7 +4,9 @@ class PopupWithForm extends Popup {
   constructor(popupSelector, handlePlaceFormSubmit) {
     super(popupSelector);
     this._handlePlaceFormSubmit = handlePlaceFormSubmit;
-    this._form = this._popupElement.querySelector(".modal__form");
+    this._form = this._popupElement.querySelector(
+      ".modal__form, .modal-place__form"
+    );
   }
 
   _getInputValues() {
