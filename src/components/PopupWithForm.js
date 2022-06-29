@@ -1,9 +1,9 @@
 import Popup from "./Popup.js";
 
 class PopupWithForm extends Popup {
-  constructor(popupSelector, handlePlaceFormSubmit) {
+  constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
-    this._handlePlaceFormSubmit = handlePlaceFormSubmit;
+    this._handleFormSubmit = handleFormSubmit;
     this._form = this._popupElement.querySelector(
       ".modal__form, .modal-place__form"
     );
@@ -11,7 +11,7 @@ class PopupWithForm extends Popup {
 
   _getInputValues() {
     const values = {};
-    const inputList = this._popupElement.querySelector(".modal__input");
+    const inputList = this._popupElement.querySelectorAll(".modal__input");
     inputList.forEach((inputElement) => {
       values[inputElement.name] = inputElement.value;
     });
@@ -20,17 +20,10 @@ class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    const imageModal = document.querySelector("#image-modal");
-    const imageModalClose = document.querySelector(".modal-image__button");
+    this._popupElement.addEventListener("submit", () => {
+      this._handleFormSubmit(this._getInputValues());
 
-    this._popupElement.addEventListener("click", (e) => {
-      e.preventDefault();
-      imageModalClose.classList.remove("modal_open");
-    });
-
-    this._popupElement.addEventListener("submit", (e) => {
-      e.preventDefault();
-      imageModalClose.classList.remove("modal_open");
+      this.close();
     });
 
     super.setEventListeners();

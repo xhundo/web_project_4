@@ -20,10 +20,10 @@ const profileModal = {
   popupSelector: "#modal-profile",
 };
 const modalPlace = new PopupWithForm(placeModal);
-modalPlace.setEventListeners();
+modalPlace.setEventListeners(handleFormSubmit);
 
 const modalProfile = new PopupWithForm(profileModal);
-modalProfile.setEventListeners();
+modalProfile.setEventListeners(handleFormSubmit);
 
 const modalProfileButtonClose = document.querySelector(".modal__button-close");
 
@@ -100,7 +100,7 @@ modalProfileButtonClose.addEventListener("click", () => {
 profileModalForm.addEventListener("submit", (e) => {
   e.preventDefault();
   fillProfileInfo();
-  toggleModal(modalProfile);
+  modalProfile.close();
 });
 
 modalPlaceCloseButton.addEventListener("click", () => {
@@ -135,7 +135,7 @@ const addFormValidator = new FormValidator(validationSettings, addFormElement);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-function handlePlaceFormSubmit(evt) {
+function handleFormSubmit(evt) {
   evt.preventDefault();
   renderCard(
     {
@@ -145,12 +145,12 @@ function handlePlaceFormSubmit(evt) {
     elementsWrap
   );
   modalPlaceForm.reset();
-  toggleModal(modalPlace);
+  modalPlace.close();
 
   addFormValidator.toggleSubmitButton();
 }
 
-modalPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
+modalPlaceForm.addEventListener("submit", handleFormSubmit);
 
 export const renderCard = (data, wrapper) => {
   const card = new Card(data, cardSelector);
