@@ -22,7 +22,8 @@ const profileModal = {
 const modalPlace = new PopupWithForm(placeModal, handleFormSubmit);
 modalPlace.setEventListeners();
 
-const modalProfile = new PopupWithForm(profileModal);
+const modalProfile = new PopupWithForm(profileModal, handleFormSubmit);
+modalProfile.setEventListeners();
 
 const modalProfileButtonClose = document.querySelector(".modal__button-close");
 
