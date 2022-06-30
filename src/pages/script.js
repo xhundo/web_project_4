@@ -1,4 +1,5 @@
 import "../pages/index.css";
+import UserInfo from "../components/UserInfo.js";
 import Popup from "../components/Popup.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
@@ -22,8 +23,10 @@ const profileModal = {
 const modalPlace = new PopupWithForm(placeModal, handleFormSubmit);
 modalPlace.setEventListeners();
 
-const modalProfile = new PopupWithForm(profileModal, handleFormSubmit);
+const modalProfile = new PopupWithForm(profileModal, handleProfileSubmit);
 modalProfile.setEventListeners();
+
+const modalProfileInfo = new UserInfo(profileModal);
 
 const modalProfileButtonClose = document.querySelector(".modal__button-close");
 
@@ -97,11 +100,6 @@ modalProfileButtonClose.addEventListener("click", () => {
   modalProfile.close();
 });
 
-profileModalForm.addEventListener("submit", (e) => {
-  fillProfileInfo();
-  modalProfile.close();
-});
-
 modalPlaceCloseButton.addEventListener("click", () => {
   modalPlace.close();
 });
@@ -146,6 +144,11 @@ function handleFormSubmit({ name, link }) {
   modalPlace.close();
 
   addFormValidator.toggleSubmitButton();
+}
+
+function handleProfileSubmit() {
+  fillProfileInfo();
+  modalProfile.close();
 }
 
 export const renderCard = (data, wrapper) => {
