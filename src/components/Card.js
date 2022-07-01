@@ -1,10 +1,9 @@
-import { openModal } from "../utils/utils.js";
-
 class Card {
-  constructor(data, cardSelector, formElement) {
+  constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _setEventListeners() {
@@ -14,7 +13,7 @@ class Card {
 
     this._element
       .querySelector(".elements__image")
-      .addEventListener("click", () => this._handlePreviewPicture());
+      .addEventListener("click", () => this._handleCardClick());
 
     this._element
       .querySelector(".elements__button")
@@ -31,16 +30,6 @@ class Card {
 
   _handleDeleteCard() {
     this._element.remove();
-  }
-
-  _handlePreviewPicture() {
-    const imageElement = document.querySelector(".modal-image__place");
-    const imageCaption = document.querySelector(".modal-caption");
-    const imageModal = document.querySelector("#image-modal");
-    imageElement.src = this._link;
-    imageCaption.textContent = this._name;
-    imageElement.alt = this._name;
-    openModal(imageModal);
   }
 
   _getTemplate() {
