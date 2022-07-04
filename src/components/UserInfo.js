@@ -1,5 +1,5 @@
 class UserInfo {
-  constructor() {
+  constructor(userName, userJob) {
     this._userName = document.querySelector("#profile-name");
     this._userJob = document.querySelector("#profile-about");
   }

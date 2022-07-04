@@ -21,11 +21,7 @@ class Card {
   }
 
   _handleLikeIcon(evt) {
-    if (evt.target.classList.contains("elements__button_active")) {
-      evt.target.classList.remove("elements__button_active");
-    } else {
-      evt.target.classList.add("elements__button_active");
-    }
+    evt.target.classList.toggle("elements__button_active");
   }
 
   _handleDeleteCard() {
@@ -41,9 +37,7 @@ class Card {
 
   getView() {
     this._element = this._getTemplate();
-
     this._element.querySelector(".elements__image").src = this._link;
-
     this._element.querySelector(
       ".elements__image"
     ).alt = `Photo of ${this._name}`;

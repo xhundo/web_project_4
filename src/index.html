@@ -81,7 +81,7 @@
     </div>
     <div class="modal modal-place" id="modal-place">
       <div class="modal-place__content">
-        <form class="modal-place__form" id="modal_place-form">
+        <form class="modal-place__form modal__form" id="modal_place-form">
           <h3 class="modal-place__title">New place</h3>
           <input
             class="modal-place__input modal__input"
@@ -109,11 +109,14 @@
             id="place__submit"
             disabled
           ></button>
-          <button type="button" class="modal-place__close"></button>
+          <button
+            type="button"
+            class="modal-place__close modal-button__close"
+          ></button>
         </form>
       </div>
     </div>
-    <div class="modal-image" id="image-modal">
+    <div class="modal modal-image" id="image-modal">
       <div class="modal-image__content">
         <img class="modal-image__place" src="#" alt="#" />
         <p class="modal-caption"></p>
