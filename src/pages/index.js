@@ -68,9 +68,9 @@ const addFormValidator = new FormValidator(validationSettings, addFormElement);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-function handleFormSubmit({ items, link }) {
-  const card = new Card({ items, link }, cardSelector, () =>
-    handleCardClick({ items, link })
+function handleFormSubmit({ name, link }) {
+  const card = new Card({ name, link }, cardSelector, () =>
+    handleCardClick({ name, link })
   );
   section.addItem(card.getView());
   modalPlace.close();
