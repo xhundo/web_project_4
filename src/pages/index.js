@@ -21,7 +21,16 @@ import {
   elementsWrap,
 } from "../utils/constants.js";
 
-const section = new Section({ initialCards, elementsWrap });
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: (data) => {
+      const card = new Card(data, cardSelector, () => handleCardClick(data));
+      section.addItem(card.getView());
+    },
+  },
+  elementsWrap
+);
 export const imagePopup = new PopupWithImage(image);
 const userInfo = new UserInfo();
 export const modalPlace = new PopupWithForm(placeModal, handleFormSubmit);
@@ -59,14 +68,11 @@ const addFormValidator = new FormValidator(validationSettings, addFormElement);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-function handleFormSubmit({ name, link }) {
-  section.renderer(
-    {
-      name,
-      link,
-    },
-    elementsWrap
+function handleFormSubmit({ items, link }) {
+  const card = new Card({ items, link }, cardSelector, () =>
+    handleCardClick({ items, link })
   );
+  section.addItem(card.getView());
   modalPlace.close();
 }
 
@@ -78,10 +84,5 @@ function handleProfileSubmit({ name, description }) {
 function handleCardClick(data) {
   imagePopup.open(data);
 }
-
-export const renderCard = (data) => {
-  const card = new Card(data, cardSelector, () => handleCardClick(data));
-  section.addItem(card.getView());
-};
 
 section.renderer(initialCards);
