@@ -1,3 +1,11 @@
+import {
+  modalPlaceCloseButton,
+  imageModalClose,
+  modalProfileButtonClose,
+} from "../utils/constants.js";
+
+import { imagePopup, modalPlace, modalProfile } from "../pages/index.js";
+
 class Popup {
   constructor({ popupSelector }) {
     this._popupElement = document.querySelector(`${popupSelector}`);
@@ -9,7 +17,7 @@ class Popup {
   }
 
   close() {
-    document.removeEventListener("keydown", this._handleEscClose.bind(this));
+    document.addEventListener("keydown", this._handleEscClose.bind(this));
     this._popupElement.classList.remove("modal_open");
   }
 
@@ -23,14 +31,24 @@ class Popup {
     this._popupElement.addEventListener("click", (evt) => {
       if (
         evt.target.classList.contains("modal") ||
-        evt.target.classList.contains("modal__button-close") ||
-        evt.target.classList.contains("modal-place") ||
-        evt.target.classList.contains("modal-place__close")
+        evt.target.classList.contains("modal__button-close")
       ) {
         this.close();
       }
     });
   }
 }
+
+imageModalClose.addEventListener("click", () => {
+  imagePopup.close();
+});
+
+modalProfileButtonClose.addEventListener("click", () => {
+  modalProfile.close();
+});
+
+modalPlaceCloseButton.addEventListener("click", () => {
+  modalPlace.close();
+});
 
 export default Popup;

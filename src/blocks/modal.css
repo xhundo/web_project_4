@@ -28,7 +28,7 @@
 .modal__form {
   display: flex;
   flex-direction: column;
-  margin: 54px 36px 0px 36px;
+  margin: 0 36px 0px 36px;
 }
 
 .modal__submit {
@@ -57,7 +57,7 @@
 }
 
 .modal__title {
-  margin: 34px 64px 0 36px;
+  margin: 34px 64px 54px 36px;
   font-family: "Inter", "Arial", sans-serif;
   font-size: 24px;
   font-weight: 900;
@@ -71,20 +71,15 @@
   line-height: 17px;
   padding: 0 0 13px 0;
   border: none;
-  margin: 29px 0 0 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.modal__input:nth-child(4n) {
+  margin: 30px 0 0 0;
+}
+
 .modal__input::placeholder {
-  color: #000;
-}
-
-.modal__input:first-of-type {
-  margin: 0;
-}
-
-.modal__input:last-of-type {
-  margin: 0;
+  color: rgba(196, 196, 196, 1);
 }
 
 .modal__button-close {
@@ -106,21 +101,6 @@
   transition: 0.2s ease-in;
 }
 
-.modal-place {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 0.6s, opacity 0.6s linear;
-}
-
 .modal-place__content {
   background-color: #fff;
   width: 430px;
@@ -138,27 +118,6 @@
 .modal-place__button {
   background-image: url(../images/SubmitButtonAdd.svg);
   width: 358px;
-}
-
-.modal-place__input {
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  width: 358px;
-  margin: 54px 0 0 0;
-  padding: 0 0 13px 0;
-  font-family: "Inter", "Arial", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
-  text-align: left;
-}
-
-.modal-place__input:nth-of-type(2n) {
-  margin: 30px 0 0 0;
-}
-
-.modal-place__input::placeholder {
-  color: rgba(196, 196, 196, 1);
 }
 
 .modal__input_error {
@@ -249,25 +208,6 @@
   margin: 10px 0 0 0;
 }
 
-.modal-image__button {
-  border: none;
-  background-color: transparent;
-  background-image: url(../images/Close\ Icon.svg);
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  position: absolute;
-  top: -47px;
-  right: -44px;
-}
-
-.modal-image__button:hover {
-  cursor: pointer;
-  opacity: 60%;
-  transition: 0.3s ease-in;
-}
-
 .modal-image__place {
   max-width: 75vw;
   max-height: 75vh;
@@ -301,7 +241,7 @@
   .modal__title {
     font-size: 18px;
     line-height: 22px;
-    margin: 25px 22px 0 22px;
+    margin: 25px 22px 76px 22px;
   }
 
   .modal__content {
@@ -319,6 +259,10 @@
 
   .modal__form {
     margin: 76px 22px 0 22px;
+  }
+
+  .modal__form:nth-child(1n) {
+    margin: 0 22px 0 22px;
   }
 
   .modal__button-close {

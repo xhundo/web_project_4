@@ -30,11 +30,12 @@ const openProfileModalButton = document.querySelector("#modal-open");
 const nameInput = document.querySelector("#modal-name");
 const jobInput = document.querySelector("#modal-description");
 const modalPlaceForm = document.querySelector("#modal_place-form");
-const modalPlaceCloseButton = document.querySelector(".modal-place__close");
+const modalPlaceCloseButton = document.querySelector(".modal__button-close");
 const modalPlaceOpenButton = document.querySelector("#modal_place-open");
 const imageModal = document.querySelector("#image-modal");
-const imageModalClose = document.querySelector(".modal-image__button");
+const imageModalClose = document.querySelector(".modal__button-close");
 const cardSelector = "#card-template";
+const elementsWrap = document.querySelector(".elements");
 
 const placeModal = {
   popupSelector: "#modal-place",
@@ -48,7 +49,7 @@ const image = {
 };
 
 const validationSettings = {
-  inputSelector: ".modal__input, .modal-place__input",
+  inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit, .modal-place__submit",
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_error",
@@ -56,7 +57,7 @@ const validationSettings = {
 };
 
 const editFormElement = document.querySelector(".modal__form");
-const addFormElement = document.querySelector(".modal-place__form");
+const addFormElement = document.querySelector("#modal_place-form");
 
 export {
   initialCards,
@@ -76,4 +77,5 @@ export {
   addFormElement,
   modalProfileButtonClose,
   openProfileModalButton,
+  elementsWrap,
 };

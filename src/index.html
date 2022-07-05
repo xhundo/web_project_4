@@ -51,7 +51,7 @@
     <div class="modal" id="modal-profile">
       <div class="modal__content">
         <h2 class="modal__title">Edit profile</h2>
-        <form class="modal__form" id="profile-form" name="name">
+        <form class="modal__form" id="profile-form">
           <input
             class="modal__input"
             type="text"
@@ -81,10 +81,10 @@
     </div>
     <div class="modal modal-place" id="modal-place">
       <div class="modal-place__content">
-        <form class="modal-place__form modal__form" id="modal_place-form">
+        <form class="modal__form" id="modal_place-form">
           <h3 class="modal-place__title">New place</h3>
           <input
-            class="modal-place__input modal__input"
+            class="modal__input"
             type="text"
             placeholder="Title"
             id="modal-title"
@@ -95,7 +95,7 @@
           />
           <span id="modal-title-error" class="modal-place__error-text"></span>
           <input
-            class="modal-place__input modal__input"
+            class="modal__input"
             type="url"
             placeholder="Image link"
             name="link"
@@ -109,10 +109,7 @@
             id="place__submit"
             disabled
           ></button>
-          <button
-            type="button"
-            class="modal-place__close modal-button__close"
-          ></button>
+          <button type="button" class="modal__button-close"></button>
         </form>
       </div>
     </div>
@@ -120,7 +117,7 @@
       <div class="modal-image__content">
         <img class="modal-image__place" src="#" alt="#" />
         <p class="modal-caption"></p>
-        <button class="modal-image__button" type="button"></button>
+        <button class="modal__button-close" type="button"></button>
       </div>
     </div>
     <template id="card-template">

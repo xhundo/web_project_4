@@ -3,9 +3,9 @@ import Popup from "./Popup.js";
 class PopupWithImage extends Popup {
   open({ name, link }) {
     this._popupElement.querySelector(".modal-caption").textContent = name;
-    const image = this._popupElement.querySelector(".modal-image__place");
-    image.alt = name;
-    image.src = link;
+    this._cardImage = this._popupElement.querySelector(".modal-image__place");
+    this._cardImage.alt = name;
+    this._cardImage.src = link;
     super.open();
   }
 }

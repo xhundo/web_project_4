@@ -4,6 +4,8 @@ class Card {
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._element = this._getTemplate();
+    this._elementImage = this._element.querySelector(".elements__image");
   }
 
   _setEventListeners() {
@@ -11,9 +13,7 @@ class Card {
       .querySelector(".elements__button-trash")
       .addEventListener("click", () => this._handleDeleteCard());
 
-    this._element
-      .querySelector(".elements__image")
-      .addEventListener("click", () => this._handleCardClick());
+    this._elementImage.addEventListener("click", () => this._handleCardClick());
 
     this._element
       .querySelector(".elements__button")
@@ -36,11 +36,8 @@ class Card {
   }
 
   getView() {
-    this._element = this._getTemplate();
-    this._element.querySelector(".elements__image").src = this._link;
-    this._element.querySelector(
-      ".elements__image"
-    ).alt = `Photo of ${this._name}`;
+    this._elementImage.src = this._link;
+    this._elementImage.alt = `Photo of ${this._name}`;
     this._element.querySelector(".elements__title").textContent = this._name;
     this._setEventListeners();
     return this._element;

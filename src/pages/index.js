@@ -1,16 +1,14 @@
 import "../pages/index.css";
+import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import FormValidator from "../components/FormValidator";
+import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import {
   initialCards,
-  modalPlaceCloseButton,
   nameInput,
   jobInput,
-  modalPlaceForm,
-  imageModalClose,
   cardSelector,
   placeModal,
   profileModal,
@@ -18,16 +16,20 @@ import {
   validationSettings,
   editFormElement,
   addFormElement,
-  modalProfileButtonClose,
   openProfileModalButton,
   modalPlaceOpenButton,
+  elementsWrap,
 } from "../utils/constants.js";
 
-const imagePopup = new PopupWithImage(image);
+const section = new Section({ initialCards, elementsWrap });
+export const imagePopup = new PopupWithImage(image);
 const userInfo = new UserInfo();
-const modalPlace = new PopupWithForm(placeModal, handleFormSubmit);
-const modalProfile = new PopupWithForm(profileModal, handleProfileSubmit);
-const elementsWrap = document.querySelector(".elements");
+export const modalPlace = new PopupWithForm(placeModal, handleFormSubmit);
+export const modalProfile = new PopupWithForm(
+  profileModal,
+  handleProfileSubmit
+);
+
 modalPlace.setEventListeners();
 imagePopup.setEventListeners();
 modalProfile.setEventListeners();
@@ -43,20 +45,9 @@ openProfileModalButton.addEventListener("click", () => {
   fillProfileForm();
 });
 
-modalProfileButtonClose.addEventListener("click", () => {
-  modalProfile.close();
-});
-
-modalPlaceCloseButton.addEventListener("click", () => {
-  modalPlace.close();
-});
-
 modalPlaceOpenButton.addEventListener("click", () => {
   modalPlace.open();
-});
-
-imageModalClose.addEventListener("click", () => {
-  imagePopup.close();
+  addFormValidator.toggleSubmitButton();
 });
 
 const editFormValidator = new FormValidator(
@@ -69,17 +60,14 @@ editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
 function handleFormSubmit({ name, link }) {
-  renderCard(
+  section.renderer(
     {
       name,
       link,
     },
     elementsWrap
   );
-  modalPlaceForm.reset();
   modalPlace.close();
-
-  addFormValidator.toggleSubmitButton();
 }
 
 function handleProfileSubmit({ name, description }) {
@@ -91,11 +79,9 @@ function handleCardClick(data) {
   imagePopup.open(data);
 }
 
-export const renderCard = (data, wrapper) => {
+export const renderCard = (data) => {
   const card = new Card(data, cardSelector, () => handleCardClick(data));
-  wrapper.prepend(card.getView());
+  section.addItem(card.getView());
 };
 
-initialCards.forEach((data) => {
-  renderCard(data, elementsWrap);
-});
+section.renderer(initialCards);
