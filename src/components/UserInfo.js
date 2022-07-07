@@ -1,15 +1,13 @@
 class UserInfo {
-  constructor(userName, userJob) {
-    this._userName = document.querySelector("#profile-name");
-    this._userJob = document.querySelector("#profile-about");
+  constructor(nameSelector, jobSelector) {
+    this._userName = nameSelector;
+    this._userJob = jobSelector;
   }
 
   getUserInfo() {
     const userData = {};
-
     userData.userName = this._userName.textContent;
     userData.userJob = this._userJob.textContent;
-
     return userData;
   }
 

@@ -19,20 +19,22 @@ import {
   openProfileModalButton,
   modalPlaceOpenButton,
   elementsWrap,
+  profileName,
+  profileAbout,
 } from "../utils/constants.js";
 
 const section = new Section(
   {
     items: initialCards,
     renderer: (data) => {
-      const card = new Card(data, cardSelector, () => handleCardClick(data));
-      section.addItem(card.getView());
+      const card = createCard(data);
+      section.addItem(card);
     },
   },
   elementsWrap
 );
 export const imagePopup = new PopupWithImage(image);
-const userInfo = new UserInfo();
+const userInfo = new UserInfo(profileName, profileAbout);
 export const modalPlace = new PopupWithForm(placeModal, handleFormSubmit);
 export const modalProfile = new PopupWithForm(
   profileModal,
@@ -47,6 +49,12 @@ function fillProfileForm() {
   const { userName, userJob } = userInfo.getUserInfo();
   nameInput.value = userName;
   jobInput.value = userJob;
+}
+
+function createCard(data) {
+  const card = new Card(data, cardSelector, () => handleCardClick(data));
+
+  return card.getView();
 }
 
 openProfileModalButton.addEventListener("click", () => {
@@ -68,11 +76,9 @@ const addFormValidator = new FormValidator(validationSettings, addFormElement);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-function handleFormSubmit({ name, link }) {
-  const card = new Card({ name, link }, cardSelector, () =>
-    handleCardClick({ name, link })
-  );
-  section.addItem(card.getView());
+function handleFormSubmit(item) {
+  const card = createCard(item, handleCardClick);
+  section.addItem(card);
   modalPlace.close();
 }
 

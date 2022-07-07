@@ -29,6 +29,8 @@ const modalProfileButtonClose = document.querySelector(".modal__button-close");
 const openProfileModalButton = document.querySelector("#modal-open");
 const nameInput = document.querySelector("#modal-name");
 const jobInput = document.querySelector("#modal-description");
+const profileName = document.querySelector("#profile-name");
+const profileAbout = document.querySelector("#profile-about");
 const modalPlaceForm = document.querySelector("#modal_place-form");
 const modalPlaceCloseButton = document.querySelector(".modal__button-close");
 const modalPlaceOpenButton = document.querySelector("#modal_place-open");
@@ -78,4 +80,6 @@ export {
   modalProfileButtonClose,
   openProfileModalButton,
   elementsWrap,
+  profileName,
+  profileAbout,
 };
