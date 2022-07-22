@@ -9,7 +9,32 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
+}
+
+.profile__image {
+  position: relative;
   margin: 40px 30px 50px 0;
+}
+
+.profile__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 120px;
+  height: 120px;
+  transition: 0.3s ease-in;
+  background-image: url(../images/hoverprofile.svg);
+  background-color: rgba(0, 0, 0, 0.8);
+  border: none;
+  opacity: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.profile__icon:hover {
+  opacity: 1;
 }
 
 .profile__info {
@@ -91,14 +116,18 @@
   }
 
   .profile__avatar {
-    margin: 0 100px 30px 100px;
+    margin: 0 0 30px 100px;
+  }
+
+  .profile__icon {
+    display: none;
   }
 
   .profile__info {
     align-items: flex-start;
     width: 282px;
     height: 50px;
-    margin: 0 0 36px 19px;
+    margin: 0 0 36px 0;
     flex-wrap: nowrap;
   }
 
@@ -120,6 +149,11 @@
     width: 250px;
   }
 
+  .profile__image {
+    margin: 0;
+    width: 120px;
+  }
+
   .profile__button {
     margin: 4px 0 0 10px;
     width: 18px;
@@ -134,7 +168,7 @@
   }
 
   .profile__addbutton {
-    margin: 0 0 0px 19px;
+    margin: 0;
     width: 282px;
   }
 

@@ -1,3 +1,7 @@
+import { deleteCard } from "../utils/constants";
+import PopupWithForm from "./PopupWithForm";
+const deletePopup = new PopupWithForm(deleteCard);
+
 class Card {
   constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
@@ -6,26 +10,43 @@ class Card {
     this._handleCardClick = handleCardClick;
     this._element = this._getTemplate();
     this._elementImage = this._element.querySelector(".elements__image");
+    this._elementDeleteButton = this._element.querySelector(
+      ".elements__button-trash"
+    );
+    this._deleteCardForm = document.querySelector("#delete_card-form");
+    this._deleteCardSubmitButton = document.querySelector(
+      ".modal__submit-delete"
+    );
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".elements__button-trash")
-      .addEventListener("click", () => this._handleDeleteCard());
+    this._elementDeleteButton.addEventListener("click", () =>
+      this._handleDeleteIconClick(this)
+    );
 
     this._elementImage.addEventListener("click", () => this._handleCardClick());
 
     this._element
       .querySelector(".elements__button")
       .addEventListener("click", this._handleLikeIcon);
+
+    this._deleteCardSubmitButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      this._handleDeleteCardSubmit();
+    });
   }
 
   _handleLikeIcon(evt) {
     evt.target.classList.toggle("elements__button_active");
   }
 
-  _handleDeleteCard() {
+  _handleDeleteCardSubmit() {
     this._element.remove();
+    deletePopup.close();
+  }
+
+  _handleDeleteIconClick() {
+    deletePopup.open();
   }
 
   _getTemplate() {

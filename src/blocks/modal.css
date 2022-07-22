@@ -33,7 +33,7 @@
 
 .modal__submit {
   margin: 48px 0 36px 0px;
-  background-image: url(../images/Submit\ Button.svg);
+  background-image: url(../images/savebutton.svg);
   background-position: center;
   background-repeat: no-repeat;
   border: none;
@@ -41,6 +41,14 @@
   height: 50px;
   border-radius: 2px;
   transition: 0.3s ease-in;
+}
+
+.modal__place-submit {
+  background-image: url(../images/createbutton.svg);
+}
+
+.modal__submit-delete {
+  background-image: url(../images/yesbutton.svg);
 }
 
 .modal__submit:disabled {
@@ -62,6 +70,15 @@
   font-size: 24px;
   font-weight: 900;
   line-height: 29px;
+}
+
+.modal__title:nth-last-child(3n) {
+  margin: 34px 0 0 0;
+}
+
+.modal__title:nth-last-child(4n) {
+  margin: 36px 0 54px 0;
+  padding: 0 64px 0 0;
 }
 
 .modal__input {

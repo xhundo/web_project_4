@@ -21,6 +21,11 @@ import {
   elementsWrap,
   profileName,
   profileAbout,
+  deleteCardModal,
+  avatarModal,
+  avatarModalButton,
+  changeAvatarModal,
+  deleteCard,
 } from "../utils/constants.js";
 
 const section = new Section(
@@ -41,9 +46,14 @@ export const modalProfile = new PopupWithForm(
   handleProfileSubmit
 );
 
+const avatarProfileModal = new PopupWithForm(changeAvatarModal);
+const deleteCardPopup = new PopupWithForm(deleteCard);
+
 modalPlace.setEventListeners();
 imagePopup.setEventListeners();
 modalProfile.setEventListeners();
+avatarProfileModal.setEventListeners();
+deleteCardPopup.setEventListeners();
 
 function fillProfileForm() {
   const { userName, userJob } = userInfo.getUserInfo();
@@ -65,6 +75,10 @@ openProfileModalButton.addEventListener("click", () => {
 modalPlaceOpenButton.addEventListener("click", () => {
   modalPlace.open();
   addFormValidator.toggleSubmitButton();
+});
+
+avatarModalButton.addEventListener("click", () => {
+  avatarProfileModal.open();
 });
 
 const editFormValidator = new FormValidator(

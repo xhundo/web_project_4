@@ -38,12 +38,23 @@ const imageModal = document.querySelector("#image-modal");
 const imageModalClose = document.querySelector(".modal__button-close");
 const cardSelector = "#card-template";
 const elementsWrap = document.querySelector(".elements");
+const avatarModal = document.querySelector("#avatar-modal");
+const deleteCardModal = document.querySelector("delete-card");
+const avatarModalButton = document.querySelector(".profile__icon");
 
 const placeModal = {
   popupSelector: "#modal-place",
 };
 const profileModal = {
   popupSelector: "#modal-profile",
+};
+
+const changeAvatarModal = {
+  popupSelector: "#avatar-modal",
+};
+
+const deleteCard = {
+  popupSelector: "#delete-card",
 };
 
 const image = {
@@ -82,4 +93,9 @@ export {
   elementsWrap,
   profileName,
   profileAbout,
+  avatarModal,
+  deleteCardModal,
+  avatarModalButton,
+  changeAvatarModal,
+  deleteCard,
 };

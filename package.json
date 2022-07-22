@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/xhundo/web_project_4/issues"
   },
-  "homepage": "https://xhundo.github.io/around-react",
+  "homepage": "https://xhundo.github.io/web_project_4",
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",

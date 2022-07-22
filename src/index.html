@@ -16,11 +16,14 @@
     </header>
     <main>
       <section class="profile">
-        <img
-          class="profile__avatar"
-          src="<%=require('./images/zac-wolff-2qfYizn95pk-unsplash.jpg')%>"
-          alt="Jacques Cousteau"
-        />
+        <div class="profile__image">
+          <img
+            class="profile__avatar"
+            src="<%=require('./images/zac-wolff-2qfYizn95pk-unsplash.jpg')%>"
+            alt="Jacques Cousteau"
+          />
+          <button class="profile__icon"></button>
+        </div>
         <div class="profile__info">
           <div class="profile__text">
             <h1 class="profile__name" id="profile-name">Jacques Cousteau</h1>
@@ -44,7 +47,6 @@
       </section>
       <div class="elements"></div>
     </main>
-
     <footer class="footer">
       <p class="footer__copyright">© 2021 Around The U.S.</p>
     </footer>
@@ -105,7 +107,7 @@
           <span id="modal-link-error" class="modal-place__error-text"></span>
           <button
             type="submit"
-            class="modal__submit"
+            class="modal__submit modal__place-submit"
             id="place__submit"
             disabled
           ></button>
@@ -120,6 +122,24 @@
         <button class="modal__button-close" type="button"></button>
       </div>
     </div>
+    <div class="modal" id="delete-card">
+      <div class="modal__content">
+        <form class="modal__form" id="delete_card-form">
+          <p class="modal__title">Are you sure?</p>
+          <button class="modal__submit-delete modal__submit"></button>
+          <button class="modal__button-close"></button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="avatar-modal">
+      <div class="modal__content">
+        <form class="modal__form">
+          <p class="modal__title">Change profile picture</p>
+          <input class="modal__input" type="url" placeholder="Image Link" id="modal-link"/>
+          <button class="modal__submit"></button>
+          <button class="modal__button-close"></button>
+        </form>
+    </div>
     <template id="card-template">
       <div class="elements__card">
         <img class="elements__image" src="#" alt="#" />
@@ -132,6 +152,7 @@
               alt="button"
             />
           </button>
+          <div class="elements__like">0</div>
         </div>
         <button class="elements__button-trash"></button>
       </div>
