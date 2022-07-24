@@ -13,7 +13,6 @@ class Card {
     this._elementDeleteButton = this._element.querySelector(
       ".elements__button-trash"
     );
-    this._deleteCardForm = document.querySelector("#delete_card-form");
     this._deleteCardSubmitButton = document.querySelector(
       ".modal__submit-delete"
     );
@@ -21,7 +20,7 @@ class Card {
 
   _setEventListeners() {
     this._elementDeleteButton.addEventListener("click", () =>
-      this._handleDeleteIconClick(this)
+      this._handleDeleteIconClick()
     );
 
     this._elementImage.addEventListener("click", () => this._handleCardClick());

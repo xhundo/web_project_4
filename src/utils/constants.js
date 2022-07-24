@@ -41,6 +41,7 @@ const elementsWrap = document.querySelector(".elements");
 const avatarModal = document.querySelector("#avatar-modal");
 const deleteCardModal = document.querySelector("delete-card");
 const avatarModalButton = document.querySelector(".profile__icon");
+const deleteSubmitButton = document.querySelector(".modal__submit-delete");
 
 const placeModal = {
   popupSelector: "#modal-place",
@@ -98,4 +99,5 @@ export {
   avatarModalButton,
   changeAvatarModal,
   deleteCard,
+  deleteSubmitButton,
 };
